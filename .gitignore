@@ -7,9 +7,11 @@
 /dist
 
 # misc
+.idea
 .DS_Store
 npm-debug.log*
 
 # secret
-./pushConfig.js
-./webpack.config.js
+pushConfig.js
+webpack.config.js
+fjpublish.config.js
