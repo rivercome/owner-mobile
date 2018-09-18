@@ -11,5 +11,5 @@
 npm-debug.log*
 
 # secret
-pushConfig.js
-webpack.config.js
+./pushConfig.js
+./webpack.config.js
