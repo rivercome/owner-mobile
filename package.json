@@ -21,6 +21,7 @@
     "dva": "^2.4.0",
     "dva-loading": "^2.0.5",
     "qiniu-webpack-plugin": "^0.4.2",
+    "rc-form": "^2.2.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
