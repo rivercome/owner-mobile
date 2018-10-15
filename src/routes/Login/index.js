@@ -10,12 +10,14 @@ if (isIPhone) {
     onTouchStart: e => e.preventDefault(),
   };
 }
+// @createForm()
 class BasicInputExample extends Component {
   componentDidMount() {
     this.autoFocusInst.focus();
   }
   handleClick = () => {
     console.log('22',  this.inputRef.focus())
+    console.log('this', this.props.form.getFieldsValue())
     this.inputRef.focus();
   }
   render() {
