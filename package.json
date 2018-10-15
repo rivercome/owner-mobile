@@ -4,14 +4,15 @@
     "start": "roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
-    "precommit": "npm run lint-staged",
+    "precommit": "lint-staged",
     "lint-staged": "lint-staged"
   },
   "lint-staged": {
     "linters": {
-      "static/js/**/*.js": [
-        "./node_modules/.bin/eslint --fix"
-      ]
+      "*.js": "工程下所有的 js 文件",
+      "**/*.js": "工程下所有的 js 文件",
+      "src/*.js": "src 目录中所有的 js 文件",
+      "src/**/*.js": "src 文件夹下所有的 js 文件"
     }
   },
   "dependencies": {
