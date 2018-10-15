@@ -18,7 +18,6 @@
     "**/*.{js,jsx}": "npm run lint-staged:js",
     "**/*.less": "stylelint --syntax less"
   },
-
   "husky": {
     "hooks": {
       "pre-commit": "npm run precommit",
@@ -30,6 +29,7 @@
     "babel-plugin-import": "^1.9.1",
     "dva": "^2.4.0",
     "dva-loading": "^2.0.5",
+    "husky": "^0.12.0",
     "prettier": "^1.14.3",
     "qiniu-webpack-plugin": "^0.4.2",
     "rc-form": "^2.2.4",
