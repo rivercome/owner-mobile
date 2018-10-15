@@ -66,12 +66,14 @@ class BasicInputExample extends Component {
           </InputItem>
         </List>
 
-        <List renderHeader={() => 'Show clear'}>
-        <InputItem
-        {...getFieldProps('inputclear')}
-        clear
-        placeholder="displayed clear while typing"
-        >标题</InputItem>
+        <List renderHeader={() => "Show clear"}>
+          <InputItem
+            {...getFieldProps("inputclear")}
+            clear
+            placeholder="displayed clear while typing"
+          >
+            标题
+          </InputItem>
         </List>
 
         <WhiteSpace />
@@ -108,11 +110,11 @@ class BasicInputExample extends Component {
 
         <WhiteSpace />
 
-        {/*<List renderHeader={() => "Customize the extra content in the right"}>*/}
-          {/*<InputItem {...getFieldProps("preice")} placeholder="0.00" extra="¥">*/}
-            {/*价格*/}
-          {/*</InputItem>*/}
-        {/*</List>*/}
+        <List renderHeader={() => "Customize the extra content in the right"}>
+          <InputItem {...getFieldProps("preice")} placeholder="0.00" extra="¥">
+            价格
+          </InputItem>
+        </List>
 
         <WhiteSpace />
         <List renderHeader={() => "Format"}>
