@@ -82,18 +82,18 @@ class BasicInputExample extends Component {
 
         <WhiteSpace />
 
-        <List renderHeader={() => 'Custom title（text / image / empty)'}>
-          <InputItem
-            {...getFieldProps('input3')}
-            placeholder="no label"
-          />
-          <InputItem
-            {...getFieldProps('inputtitle2')}
-            placeholder="title can be icon，image or text"
-          >
-            <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
-          </InputItem>
-        </List>
+        {/*<List renderHeader={() => 'Custom title（text / image / empty)'}>*/}
+          {/*<InputItem*/}
+            {/*{...getFieldProps('input3')}*/}
+            {/*placeholder="no label"*/}
+          {/*/>*/}
+          {/*<InputItem*/}
+            {/*{...getFieldProps('inputtitle2')}*/}
+            {/*placeholder="title can be icon，image or text"*/}
+          {/*>*/}
+            {/*<div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />*/}
+          {/*</InputItem>*/}
+        {/*</List>*/}
 
         <WhiteSpace />
 
