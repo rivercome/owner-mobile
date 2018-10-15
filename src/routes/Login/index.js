@@ -108,11 +108,11 @@ class BasicInputExample extends Component {
 
         <WhiteSpace />
 
-        <List renderHeader={() => "Customize the extra content in the right"}>
-          <InputItem {...getFieldProps("preice")} placeholder="0.00" extra="¥">
-            价格
-          </InputItem>
-        </List>
+        {/*<List renderHeader={() => "Customize the extra content in the right"}>*/}
+          {/*<InputItem {...getFieldProps("preice")} placeholder="0.00" extra="¥">*/}
+            {/*价格*/}
+          {/*</InputItem>*/}
+        {/*</List>*/}
 
         <WhiteSpace />
         <List renderHeader={() => "Format"}>
