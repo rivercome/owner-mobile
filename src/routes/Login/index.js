@@ -5,11 +5,13 @@ import { createForm } from "rc-form";
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
 );
-let moneyKeyboardWrapProps;
+
 if (isIPhone) {
+  let moneyKeyboardWrapProps;
   moneyKeyboardWrapProps = {
     onTouchStart: e => e.preventDefault()
   };
+  console.log("?", moneyKeyboardWrapProps.onTouchStart);
 }
 // @createForm()
 class BasicInputExample extends Component {
@@ -34,16 +36,12 @@ class BasicInputExample extends Component {
           >
             <div onClick={() => this.labelFocusInst.focus()}>用户名</div>
           </InputItem>
-          <InputItem placeholder="帐号" ref={el => (this.labelFocusInst = el)}>
-            <div onClick={() => this.labelFocusInst.focus()}>密码</div>
-          </InputItem>
           <InputItem
-            {...getFieldProps("focus")}
-            clear
-            placeholder="click the button below to focus"
-            ref={el => (this.inputRef = el)}
+            placeholder="帐号"
+            type="password"
+            ref={el => (this.labelFocusInst = el)}
           >
-            密码
+            <div onClick={() => this.labelFocusInst.focus()}>密码</div>
           </InputItem>
           <List.Item>
             <div
@@ -53,27 +51,6 @@ class BasicInputExample extends Component {
               click to focus
             </div>
           </List.Item>
-        </List>
-
-        <WhiteSpace />
-
-        <List renderHeader={() => "Click label to focus input"}>
-          <InputItem
-            placeholder="click label to focus input"
-            ref={el => (this.labelFocusInst = el)}
-          >
-            <div onClick={() => this.labelFocusInst.focus()}>标题</div>
-          </InputItem>
-        </List>
-
-        <List renderHeader={() => "Show clear"}>
-          <InputItem
-            {...getFieldProps("inputclear")}
-            clear
-            placeholder="displayed clear while typing"
-          >
-            标题
-          </InputItem>
         </List>
 
         <WhiteSpace />
@@ -110,22 +87,8 @@ class BasicInputExample extends Component {
 
         <WhiteSpace />
 
-        <List renderHeader={() => "Customize the extra content in the right"}>
-          <InputItem {...getFieldProps("preice")} placeholder="0.00" extra="¥">
-            价格
-          </InputItem>
-        </List>
-
         <WhiteSpace />
         <List renderHeader={() => "Format"}>
-          <InputItem
-            {...getFieldProps("bankCard", {
-              initialValue: "8888 8888 8888 8888"
-            })}
-            type="bankCard"
-          >
-            银行卡
-          </InputItem>
           <InputItem
             {...getFieldProps("phone")}
             type="phone"
@@ -155,17 +118,7 @@ class BasicInputExample extends Component {
             数字键盘
           </InputItem>
         </List>
-
         <WhiteSpace />
-
-        <List renderHeader={() => "Not editable / Disabled"}>
-          <InputItem value="not editable" editable={false}>
-            姓名
-          </InputItem>
-          <InputItem value="style of disabled `InputItem`" disabled>
-            姓名
-          </InputItem>
-        </List>
       </div>
     );
   }
