@@ -18,6 +18,13 @@
     "**/*.{js,jsx}": "npm run lint-staged:js",
     "**/*.less": "stylelint --syntax less"
   },
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit",
+      "pre-push": "echo push"
+    }
+  },
   "dependencies": {
     "antd-mobile": "^2.2.5",
     "babel-plugin-import": "^1.9.1",
