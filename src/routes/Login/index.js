@@ -57,11 +57,13 @@ class BasicInputExample extends Component {
 
         <WhiteSpace />
 
-        <List renderHeader={() => 'Click label to focus input'}>
-        <InputItem
-        placeholder="click label to focus input"
-        ref={el => this.labelFocusInst = el}
-        ><div onClick={() => this.labelFocusInst.focus()}>标题</div></InputItem>
+        <List renderHeader={() => "Click label to focus input"}>
+          <InputItem
+            placeholder="click label to focus input"
+            ref={el => (this.labelFocusInst = el)}
+          >
+            <div onClick={() => this.labelFocusInst.focus()}>标题</div>
+          </InputItem>
         </List>
 
         <List renderHeader={() => 'Show clear'}>
