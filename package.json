@@ -10,8 +10,7 @@
   "lint-staged": {
     "linters": {
       "static/js/**/*.js": [
-        "./node_modules/.bin/eslint --fix",
-        "git add"
+        "./node_modules/.bin/eslint --fix"
       ]
     }
   },
