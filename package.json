@@ -5,7 +5,7 @@
     "start": "roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
-    "precommit": "lint-staged",
+    "precommit": "echo testaaa",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js"
   },
