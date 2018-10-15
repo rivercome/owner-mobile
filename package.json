@@ -4,16 +4,16 @@
     "start": "roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
-    "precommit": "lint-staged",
+    "precommit": "npm run lint-staged",
     "lint-staged": "lint-staged"
   },
   "lint-staged": {
-    "linters": {
-      "*.js": "工程下所有的 js 文件",
-      "**/*.js": "工程下所有的 js 文件",
-      "src/*.js": "src 目录中所有的 js 文件",
-      "src/**/*.js": "src 文件夹下所有的 js 文件"
-    }
+    "**/*.{js,jsx,less}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{js,jsx}": "npm run lint-staged:js",
+    "**/*.less": "stylelint --syntax less"
   },
   "dependencies": {
     "antd-mobile": "^2.2.5",
