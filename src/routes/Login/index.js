@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { List, InputItem, WhiteSpace } from "antd-mobile";
 import { createForm } from "rc-form";
 
+
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
 );
+
 
 if (isIPhone) {
   let moneyKeyboardWrapProps;
