@@ -10,6 +10,7 @@ module.exports = {
     production: {
       publicPath: 'http://p2hfdzdsp.bkt.clouddn.com/fe',
       ignoreMomentLocale: true,
+      exclude:[/node_modules/],
     }
   },
 }
