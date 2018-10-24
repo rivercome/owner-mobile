@@ -26,6 +26,7 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
+      "rule-empty-line-before": null,
       "string-quotes": "single",
       "property-no-unknown": [
         true,
