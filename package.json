@@ -60,9 +60,7 @@
     "rc-form": "^2.2.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "stylelint": "^9.6.0",
-    "stylelint-config-prettier": "^4.0.0",
-    "stylelint-config-standard": "^18.2.0"
+    "stylelint": "^9.7.0"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
