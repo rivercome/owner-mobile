@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, InputItem, WhiteSpace, Button } from "antd-mobile";
+import { List, WhiteSpace } from "antd-mobile";
 import { createForm } from "rc-form";
 import styles from "./list.less";
 import Header from "../header/index";
@@ -8,7 +8,7 @@ const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
 );
 const Item = List.Item;
-const Brief = Item.Brief;
+// const Brief = Item.Brief;
 if (isIPhone) {
   let moneyKeyboardWrapProps;
   moneyKeyboardWrapProps = {
@@ -30,7 +30,7 @@ class ListInformFun extends Component {
     disabled: false
   };
   render() {
-    const { getFieldProps } = this.props.form;
+    // const { getFieldProps } = this.props.form;
     return (
       <div>
         <div>
