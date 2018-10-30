@@ -10,13 +10,12 @@
     "lint-staged:js": "eslint --ext .js"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,less}": [
+    "src/**/*.{js,jsx}": [
       "prettier --write",
       "eslint --fix",
       "git add"
     ],
-    "**/*.{js,jsx}": "npm run lint-staged:js",
-    "**/*.less": "stylelint --syntax less"
+    "**/*.{js,jsx}": "npm run lint-staged:js"
   },
   "husky": {
     "hooks": {
