@@ -15,19 +15,7 @@ class Header extends Component {
     return (
       <div className={styles.header}>
         <div className={styles.first}>
-          <span className={styles.title}>
-            {this.props.title ? this.props.title : "秦皇岛物业平台"}
-          </span>
-        </div>
-        <div className={styles.first}>
-          <div className={styles.button}>
-            {this.props.button ? (
-              <Button inline size="small" style={{ marginRight: "4px" }}>
-                {this.props.button}
-              </Button>
-            ) : (
-              ""
-            )}
+          <div className={styles.buttons}>
             <Button
               inline
               size="small"
@@ -35,6 +23,23 @@ class Header extends Component {
               onClick={this.handleClick}
             >
               返回
+            </Button>
+          </div>
+        </div>
+        <div className={styles.first}>
+          <span className={styles.title}>
+            {this.props.title ? this.props.title : "秦皇岛物业平台"}
+          </span>
+        </div>
+        <div className={styles.first}>
+          <div className={styles.button}>
+            <Button
+              inline
+              size="small"
+              style={{ marginRight: "4px" }}
+              onClick={this.handleClick}
+            >
+              首页
             </Button>
           </div>
         </div>
