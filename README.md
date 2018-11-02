@@ -20,3 +20,6 @@
 ### 开发流程
 + 每次开发前合入origin master代码【如果从自己仓库拉取，手动添加https://github.com/rivercome并拉取】
 + 每晚离开前在日报上简略写下 个人负责的进度，并提交git【如果没有问题，提交pull request】
+### 开发进程 
+- lpf 
+待办事项等组件全部完成

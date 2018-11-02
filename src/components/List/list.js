@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { List, WhiteSpace } from "antd-mobile";
 import { createForm } from "rc-form";
 import styles from "./list.less";
-import Header from "../header/index";
 
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
@@ -33,9 +32,6 @@ class ListInformFun extends Component {
     // const { getFieldProps } = this.props.form;
     return (
       <div>
-        <div>
-          <Header />
-        </div>
         <div style={{ fontSize: "14px" }}>
           <List renderHeader={() => "小区信息"}>
             <div className={styles.box}>

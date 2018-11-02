@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, List, InputItem, TextareaItem } from "antd-mobile";
-import Header from "../header";
+import Header from "../Layout";
 import Submission from "../submission";
 import styles from "./index.less";
 import { createForm } from "rc-form";
