@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { List, WhiteSpace } from "antd-mobile";
 import { createForm } from "rc-form";
+import axios from "axios";
 import styles from "./list.less";
-import Header from "../header/index";
 
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
 );
+
 const Item = List.Item;
-// const Brief = Item.Brief;
+
 if (isIPhone) {
   let moneyKeyboardWrapProps;
   moneyKeyboardWrapProps = {
@@ -17,25 +18,38 @@ if (isIPhone) {
   console.log("?", moneyKeyboardWrapProps.onTouchStart);
 }
 // @createForm()
+
 class ListInformFun extends Component {
   // componentDidMount() {
   //   this.autoFocusInst.focus();
   // }
-  handleClick = () => {
-    console.log("22", this.inputRef.focus());
-    console.log("this", this.props.form.getFieldsValue());
-    this.inputRef.focus();
-  };
+
   state = {
     disabled: false
   };
+
+  componentDidMount() {
+    axios
+      .get("http://154.8.214.49:8080/sjd/yzxgxx/xqxx", {
+        headers: {
+          "Content-Type": "application/json",
+          token: "",
+          token_type: ""
+        }
+      })
+      .then(res => {
+        alert("succ");
+        console.log(res);
+      })
+      .catch(() => {
+        alert("error");
+      });
+  }
+
   render() {
     // const { getFieldProps } = this.props.form;
     return (
       <div>
-        <div>
-          <Header />
-        </div>
         <div style={{ fontSize: "14px" }}>
           <List renderHeader={() => "小区信息"}>
             <div className={styles.box}>
