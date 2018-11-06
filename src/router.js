@@ -8,7 +8,7 @@ import Home from "./routes/home";
 import qualityEvaluation from "./routes/Todo/qualityEvaluation";
 import ListInform from "./components/List/list";
 import Layout from "./components/Layout";
-
+import abc from "./components/oldBuilding";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -21,6 +21,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/a" component={submission} />
           <Route path="/b" component={Vote} />
           <Route path="/c" component={qualityEvaluation} />
+          <Route path="/d" component={abc} />
         </Switch>
       </Layout>
     </Router>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Button, List, InputItem, TextareaItem } from "antd-mobile";
-import Header from "../Layout";
 import Submission from "../submission";
 import styles from "./index.less";
 import { createForm } from "rc-form";
+require("./photo");
 
 class submissionAdd extends Component {
   constructor(props) {
@@ -20,7 +20,6 @@ class submissionAdd extends Component {
     const { getFieldProps } = this.props.form;
     return (
       <div className={styles.box}>
-        <Header />
         <Submission />
         <div className={styles.head}>
           <div className={styles.header}>
@@ -65,6 +64,40 @@ class submissionAdd extends Component {
               title="报修内容"
             />
           </List>
+          <div id="camera">
+            <div id="contentHolder">
+              <video
+                id="video"
+                style={{ width: "200px", height: "200px" }}
+                autoPlay
+              />
+              <canvas
+                style={{ display: "none", width: "200px", height: "200px" }}
+                id="canvas"
+                width="200"
+                height="200"
+              />
+            </div>
+            <div id="buttons">
+              <button id="btn" className="btn btn_blue">
+                拍照
+              </button>
+              <button
+                id="btn_cancel"
+                className="btn btn_blue"
+                style={{ display: "none" }}
+              >
+                取消
+              </button>
+              <button
+                id="btn_upload"
+                className="btn btn_green"
+                style={{ display: "none" }}
+              >
+                上传
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
