@@ -20,7 +20,10 @@ class example extends Component {
       a: ""
     };
   }
+
   render() {
+    const { message, show, dfShow } = this.props;
+    console.log(this.props.show);
     const fuJian = (
       <div>
         附件下载：
@@ -56,6 +59,18 @@ class example extends Component {
         </List>
       </div>
     );
+    const pjms = (
+      <div>
+        <span>评价描述：</span>
+        <List>
+          <TextareaItem
+            {...getFieldProps("note3")}
+            rows={3}
+            placeholder="fixed number of lines"
+          />
+        </List>
+      </div>
+    );
     return (
       <div className={styles.box}>
         <div className={styles.first}>
@@ -76,7 +91,7 @@ class example extends Component {
             <div className={styles.download}>{fuJian}</div>
           </div>
         </div>
-        <div>{this.props ? vote : ""}</div>
+        <div>{show === true ? vote : pjms}</div>
         <span>小区现状打分：</span>
         <span>
           <List>

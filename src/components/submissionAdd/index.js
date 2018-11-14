@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, List, InputItem, TextareaItem } from "antd-mobile";
-import Submission from "../submission";
 import styles from "./index.less";
 import { createForm } from "rc-form";
 require("./photo");
@@ -20,12 +19,22 @@ class submissionAdd extends Component {
     const { getFieldProps } = this.props.form;
     return (
       <div className={styles.box}>
-        <Submission />
         <div className={styles.head}>
           <div className={styles.header}>
             <span className={styles.title}>报修内容</span>
+
+            <div className={styles.button}>
+              <Button
+                inline
+                size="small"
+                style={{ marginRight: "4px" }}
+                onClick={this.handleClick}
+              >
+                提交
+              </Button>
+            </div>
           </div>
-          <div className={styles.button}>
+          {/* <div className={styles.button}>
             <Button
               inline
               size="small"
@@ -34,7 +43,7 @@ class submissionAdd extends Component {
             >
               提交
             </Button>
-          </div>
+          </div> */}
         </div>
         <div className={styles.message}>
           <List>
@@ -64,7 +73,7 @@ class submissionAdd extends Component {
               title="报修内容"
             />
           </List>
-          <div id="camera">
+          {/* <div id="camera">
             <div id="contentHolder">
               <video
                 id="video"
@@ -97,7 +106,7 @@ class submissionAdd extends Component {
                 上传
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );
