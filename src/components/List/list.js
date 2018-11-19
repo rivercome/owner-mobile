@@ -27,23 +27,21 @@ class ListInformFun extends Component {
   state = {
     disabled: false
   };
-
+  // http://154.8.214.49:8080/sjd/yzxgxx/xqxx
   componentDidMount() {
-    axios
-      .get("http://154.8.214.49:8080/sjd/yzxgxx/xqxx", {
-        headers: {
-          "Content-Type": "application/json",
-          token: "",
-          token_type: ""
-        }
-      })
-      .then(res => {
-        alert("succ");
-        console.log(res);
-      })
-      .catch(() => {
-        alert("error");
-      });
+    axios({
+      method: "post",
+      url: "http://154.8.214.49:8080/yzzh/login",
+      data: {
+        login_name: "13933528963",
+        password: "maoqiu...",
+        login_type: "yzzh"
+      }
+    }).then(res => {
+      alert("succ");
+      console.log(res);
+      localStorage.setItem("token", res.data.data.token);
+    });
   }
 
   render() {
