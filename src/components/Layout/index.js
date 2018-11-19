@@ -4,20 +4,23 @@ import styles from "./index.less";
 
 const Header = props => (
   <div className={styles.header}>
-    <div className={styles.first}>
-      <div className={styles.buttons}>
-        <Button inline size="small" style={{ marginRight: "4px" }}>
-          返回
-        </Button>
-      </div>
-    </div>
-    <div className={styles.first}>
-      <div className={styles.button}>
-        <Button inline size="small" style={{ marginRight: "4px" }}>
+    <ul className={styles.nav}>
+      <li>
+        <div style={{ marginLeft: "-20px" }}>
+          <Button inline size="small">
+            返回
+          </Button>
+        </div>
+      </li>
+      <li>
+        <span style={{ fontSize: "18px" }}>秦皇岛物业管理平台</span>
+      </li>
+      <li>
+        <Button inline size="small">
           首页
         </Button>
-      </div>
-    </div>
+      </li>
+    </ul>
     <div className={styles.AppContent}>{props.children}</div>
   </div>
 );

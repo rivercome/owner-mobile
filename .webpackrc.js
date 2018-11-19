@@ -1,7 +1,8 @@
 module.exports = {
   entry: 'src/index.js',
   extraBabelPlugins: [
-    ["import", { libraryName: "antd-mobile", libraryDirectory: "es", style: true }]
+    ["import", { libraryName: "antd-mobile", libraryDirectory: "es", style: true }],
+    ["import", { libraryName: "antd", "libraryDirectory": "lib",style:true} ,"ant"],
   ],
   env: {
     development: {
