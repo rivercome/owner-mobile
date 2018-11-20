@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { List, WhiteSpace } from "antd-mobile";
 import { createForm } from "rc-form";
-import axios from "axios";
 import styles from "./list.less";
+import axios from "axios";
 
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
@@ -30,7 +30,7 @@ class ListInformFun extends Component {
   // http://154.8.214.49:8080/sjd/yzxgxx/xqxx
   componentDidMount() {
     axios({
-      method: "post",
+      method: "POST",
       url: "http://154.8.214.49:8080/yzzh/login",
       data: {
         login_name: "13933528963",
