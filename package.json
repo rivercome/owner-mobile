@@ -10,12 +10,11 @@
     "lint-staged:js": "eslint --ext .js"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,less}": [
+    "src/**/*.{js,jsx}": [
       "prettier --write",
       "git add"
     ],
-    "**/*.{js,jsx}": "npm run lint-staged:js",
-    "**/*.less": "stylelint --syntax less"
+    "**/*.{js,jsx}": "npm run lint-staged:js"
   },
   "husky": {
     "hooks": {
@@ -49,6 +48,7 @@
   "dependencies": {
     "antd": "^3.10.3",
     "antd-mobile": "^2.2.5",
+    "axios": "^0.18.0",
     "babel-plugin-import": "^1.9.1",
     "dva": "^2.4.0",
     "dva-loading": "^2.0.5",
@@ -65,6 +65,7 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-dva-hmr": "^0.3.2",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -78,5 +79,6 @@
     "lint-staged": "^7.2.2",
     "redbox-react": "^1.4.3",
     "roadhog": "^2.0.0"
+
   }
 }

@@ -1,0 +1,117 @@
+Arguments: 
+  /home/waidzsalome/.nvm/versions/node/v10.9.0/bin/node /home/waidzsalome/.nvm/versions/node/v10.9.0/bin/yarn add axios
+
+PATH: 
+  /home/waidzsalome/.nvm/versions/node/v10.9.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  10.9.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/home/waidzsalome/.nvm/versions/node/v10.9.0/lib/node_modules/yarn/lib/cli.js:138095:19)
+      at Object.onceWrapper (events.js:273:13)
+      at ClientRequest.emit (events.js:182:13)
+      at TLSSocket.emitRequestTimeout (_http_client.js:661:40)
+      at Object.onceWrapper (events.js:273:13)
+      at TLSSocket.emit (events.js:182:13)
+      at TLSSocket.Socket._onTimeout (net.js:448:8)
+      at ontimeout (timers.js:424:11)
+      at tryOnTimeout (timers.js:288:5)
+      at listOnTimeout (timers.js:251:5)
+
+npm manifest: 
+  {
+    "name": "qhdwygl-ownermobile",
+    "private": true,
+    "scripts": {
+      "start": "roadhog server",
+      "build": "roadhog build",
+      "lint": "eslint --fix --ext .js src test",
+      "precommit": "lint-staged",
+      "lint-staged": "lint-staged",
+      "lint-staged:js": "eslint --ext .js"
+    },
+    "lint-staged": {
+      "src/**/*.{js,jsx}": [
+        "prettier --write",
+        "git add"
+      ],
+      "**/*.{js,jsx}": "npm run lint-staged:js"
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "npm run precommit",
+        "pre-push": "echo push"
+      }
+    },
+    "stylelint": {
+      "extends": "stylelint-config-standard",
+      "rules": {
+        "rule-empty-line-before": null,
+        "string-quotes": "single",
+        "property-no-unknown": [
+          true,
+          {
+            "ignoreProperties": [
+              "composes"
+            ]
+          }
+        ],
+        "selector-pseudo-class-no-unknown": [
+          true,
+          {
+            "ignorePseudoClasses": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "dependencies": {
+      "antd-mobile": "^2.2.5",
+      "babel-plugin-import": "^1.9.1",
+      "dva": "^2.4.0",
+      "dva-loading": "^2.0.5",
+      "eslint-config-airbnb": "^17.1.0",
+      "eslint-config-prettier": "^3.1.0",
+      "husky": "^0.12.0",
+      "prettier": "^1.14.3",
+      "prop-types": "^15.6.2",
+      "qiniu-webpack-plugin": "^0.4.2",
+      "rc-form": "^2.2.4",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0",
+      "stylelint": "^9.6.0",
+      "stylelint-config-prettier": "^4.0.0",
+      "stylelint-config-standard": "^18.2.0"
+    },
+    "devDependencies": {
+      "babel-plugin-dva-hmr": "^0.3.2",
+      "eslint": "^4.14.0",
+      "eslint-config-airbnb": "^17.1.0",
+      "eslint-config-prettier": "^3.1.0",
+      "eslint-config-umi": "^0.1.1",
+      "eslint-plugin-flowtype": "^2.34.1",
+      "eslint-plugin-import": "^2.6.0",
+      "eslint-plugin-jsx-a11y": "^5.1.1",
+      "eslint-plugin-react": "^7.1.0",
+      "husky": "^0.12.0",
+      "lint-staged": "^7.2.2",
+      "redbox-react": "^1.4.3",
+      "roadhog": "^2.0.0",
+      "stylelint-config-prettier": "^4.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
