@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { List, WhiteSpace } from "antd-mobile";
 import { createForm } from "rc-form";
 import styles from "./list.less";
+import axios from "axios";
 
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
 );
+
 const Item = List.Item;
-// const Brief = Item.Brief;
+
 if (isIPhone) {
   let moneyKeyboardWrapProps;
   moneyKeyboardWrapProps = {
@@ -16,18 +18,32 @@ if (isIPhone) {
   console.log("?", moneyKeyboardWrapProps.onTouchStart);
 }
 // @createForm()
+
 class ListInformFun extends Component {
   // componentDidMount() {
   //   this.autoFocusInst.focus();
   // }
-  handleClick = () => {
-    console.log("22", this.inputRef.focus());
-    console.log("this", this.props.form.getFieldsValue());
-    this.inputRef.focus();
-  };
+
   state = {
     disabled: false
   };
+  // http://154.8.214.49:8080/sjd/yzxgxx/xqxx
+  componentDidMount() {
+    axios({
+      method: "POST",
+      url: "http://154.8.214.49:8080/yzzh/login",
+      data: {
+        login_name: "13933528963",
+        password: "maoqiu...",
+        login_type: "yzzh"
+      }
+    }).then(res => {
+      alert("succ");
+      console.log(res);
+      localStorage.setItem("token", res.data.data.token);
+    });
+  }
+
   render() {
     // const { getFieldProps } = this.props.form;
     return (
