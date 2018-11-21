@@ -10,6 +10,7 @@ import ListInform from "./components/List/list";
 import Layout from "./components/Layout";
 import abc from "./components/oldBuilding";
 import abcd from "./routes/oldBuilding/zgsq";
+import abcde from "./routes/dbsy";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -24,6 +25,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/c" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
           <Route path="/e" component={abcd} />
+          <Route path="/f" component={abcde} />
         </Switch>
       </Layout>
     </Router>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "dva";
 import { List, TextareaItem, Button } from "antd-mobile";
-import { Radio, Divider } from "antd";
+import { Radio, Divider, Form } from "antd";
 import { createForm } from "rc-form";
 import styles from "./Vote.less";
 const RadioButton = Radio.Button;
@@ -9,7 +10,12 @@ const RadioGroup = Radio.Group;
 function onChange(e) {
   console.log(`radio checked:${e.target.value}`);
 }
+// @Form.create()
 class Vote extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
   render() {
     const { getFieldProps } = this.props.form;
     const fuJian = (
@@ -79,4 +85,4 @@ class Vote extends Component {
   }
 }
 const TextareaItemExampleWrapper = createForm()(Vote);
-export default TextareaItemExampleWrapper;
+export default connect(({ modal }) => ({ modal }))(TextareaItemExampleWrapper);
