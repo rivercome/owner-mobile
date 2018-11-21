@@ -10,6 +10,7 @@ import ListInform from "./components/List/list";
 import Layout from "./components/Layout";
 import abc from "./components/oldBuilding";
 import abcd from "./routes/oldBuilding/zgsq";
+import abcde from "./routes/dbsy";
 import Call from "./components/usualphone";
 const RouterConfig = ({ history }) => {
   return (
@@ -25,6 +26,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/c" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
           <Route path="/e" component={abcd} />
+          <Route path="/f" component={abcde} />
           <Route path="/call" component={Call} />
         </Switch>
       </Layout>
