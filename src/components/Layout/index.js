@@ -4,7 +4,7 @@ import styles from "./index.less";
 
 const Header = props => (
   <div className={styles.header}>
-    <ul className={styles.nav}>
+    {/* <ul className={styles.nav}>
       <li>
         <div style={{ marginLeft: "-20px" }}>
           <Button inline size="small">
@@ -20,7 +20,7 @@ const Header = props => (
           首页
         </Button>
       </li>
-    </ul>
+    </ul> */}
     <div className={styles.AppContent}>{props.children}</div>
   </div>
 );
