@@ -21,29 +21,29 @@ const codeMessage = {
   504: "网关超时。",
   1011: "该token不存在"
 };
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-  const errortext = codeMessage[response.status] || response.statusText;
-  notification.error({
-    message: `请求错误 ${response.status}: ${response.url}`,
-    description: errortext
-  });
-  const error = new Error(errortext);
-  error.name = response.status;
-  error.response = response;
-  throw error;
-}
+// function checkStatus(response) {
+//   if (response.status >= 200 && response.status < 300) {
+//     return response;
+//   }
+//   const errortext = codeMessage[response.status] || response.statusText;
+//   notification.error({
+//     message: `请求错误 ${response.status}: ${response.url}`,
+//     description: errortext
+//   });
+//   const error = new Error(errortext);
+//   error.name = response.status;
+//   error.response = response;
+//   throw error;
+// }
 
-function checkCode(response) {
-  if (response.code === 1011) {
-    const err = new Error();
-    err.name = 401;
-    throw err;
-  }
-  return response;
-}
+// function checkCode(response) {
+//   if (response.code === 1011) {
+//     const err = new Error();
+//     err.name = 401;
+//     throw err;
+//   }
+//   return response;
+// }
 
 /**
  * Requests a URL, returning a promise.
@@ -52,12 +52,19 @@ function checkCode(response) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-export default function request(url, options) {
+export default function request(url, options, tag) {
   // const defaultOptions = {
   //   credentials: 'include',
   // };
   const newOptions = { ...options };
-  if (
+  if (tag === true) {
+    newOptions.headers = {
+      "Content-Type": "application/json",
+      ...newOptions.headers
+    };
+    newOptions.body = JSON.stringify(newOptions.body);
+    console.log(newOptions);
+  } else if (
     newOptions.method === "GET" ||
     newOptions.method === "POST" ||
     newOptions.method === "PUT" ||
@@ -68,7 +75,7 @@ export default function request(url, options) {
         Accept: "application/json",
         "Content-Type": "application/json; charset=utf-8",
         // token: localStorage.tokenqy,
-        token: "d643e0d006f1a10f9bf3092065a88916",
+        token: localStorage.token,
         token_type: "yz",
         ...newOptions.headers
       };
@@ -78,40 +85,43 @@ export default function request(url, options) {
       newOptions.headers = {
         Accept: "application/json",
         // token: localStorage.tokenqy,
-        token: "d643e0d006f1a10f9bf3092065a88916",
+        token: localStorage.token,
         token_type: "yz",
         ...newOptions.headers
       };
     }
   }
-  return fetch(url, newOptions)
-    .then(checkStatus)
-    .then(response => {
-      if (newOptions.method === "DELETE" || response.status === 204) {
+  return (
+    fetch(url, newOptions, tag)
+      // .then(checkStatus)
+      .then(response => {
+        if (newOptions.method === "DELETE" || response.status === 204) {
+          return response.json();
+        }
         return response.json();
-      }
-      return response.json();
-    })
-    .then(checkCode)
-    .catch(e => {
-      const { dispatch } = store;
-      const status = e.name;
-      if (status === 401) {
-        dispatch({
-          type: "login/logout"
-        });
-        // return;
-      }
-      // if (status === 403) {
-      //   dispatch(routerRedux.push('/exception/403'));
-      //   return;
-      // }
-      // if (status <= 504 && status >= 500) {
-      //   dispatch(routerRedux.push('/exception/500'));
-      //   return;
-      // }
-      // if (status >= 404 && status < 422) {
-      //   dispatch(routerRedux.push('/exception/404'));
-      // }
-    });
+      })
+      // .then(checkCode)
+      .catch(e => {
+        console.log(e);
+        // const { dispatch } = store;
+        // const status = e.name;
+        // if (status === 401) {
+        //   dispatch({
+        //     type: "login/logout"
+        //   });
+        //   // return;
+        // }
+        // if (status === 403) {
+        //   dispatch(routerRedux.push('/exception/403'));
+        //   return;
+        // }
+        // if (status <= 504 && status >= 500) {
+        //   dispatch(routerRedux.push('/exception/500'));
+        //   return;
+        // }
+        // if (status >= 404 && status < 422) {
+        //   dispatch(routerRedux.push('/exception/404'));
+        // }
+      })
+  );
 }
