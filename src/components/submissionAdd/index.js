@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Button, List, InputItem, TextareaItem } from "antd-mobile";
 import styles from "./index.less";
+import { connect } from "dva";
 import { createForm } from "rc-form";
-require("./photo");
+import "./photo";
 
 class submissionAdd extends Component {
   constructor(props) {
@@ -10,12 +11,24 @@ class submissionAdd extends Component {
     this.state = {};
   }
   handleClick = () => {
-    this.props.form.validateFields(value => {
+    // this.props.form.getFieldsValue((...value)=>{
+    //   console.log(...value)
+    // })
+    const a = this.props.form.getFieldsValue().message;
+    const b = this.props.form.getFieldsValue().phone;
+    const c = this.props.form.getFieldsValue().count;
+    const value = { a, b, c };
+    console.log(value);
+    console.log(this.props.handleSubmit);
+    this.props.handleSubmit(value);
+    this.props.handleSubmit(value => {
       console.log(value);
     });
   };
 
   render() {
+    // const abc=this.props
+    // console.log(abc)
     const { getFieldProps } = this.props.form;
     return (
       <div className={styles.box}>
@@ -34,16 +47,6 @@ class submissionAdd extends Component {
               </Button>
             </div>
           </div>
-          {/* <div className={styles.button}>
-            <Button
-              inline
-              size="small"
-              style={{ marginRight: "4px" }}
-              onClick={this.handleClick}
-            >
-              提交
-            </Button>
-          </div> */}
         </div>
         <div className={styles.message}>
           <List>
@@ -51,7 +54,7 @@ class submissionAdd extends Component {
               {...getFieldProps("message")}
               clear
               placeholder="有青蛙"
-              ref={el => (this.autoFocusInst = el)}
+              // ref={el => (this.autoFocusInst = el)}
             >
               报修事项
             </InputItem>
@@ -59,7 +62,7 @@ class submissionAdd extends Component {
               {...getFieldProps("phone")}
               clear
               placeholder="1555120"
-              ref={el => (this.autoFocusInst = el)}
+              // ref={el => (this.autoFocusInst = el)}
             >
               联系电话
             </InputItem>
@@ -73,7 +76,7 @@ class submissionAdd extends Component {
               title="报修内容"
             />
           </List>
-          {/* <div id="camera">
+          <div id="camera">
             <div id="contentHolder">
               <video
                 id="video"
@@ -88,9 +91,9 @@ class submissionAdd extends Component {
               />
             </div>
             <div id="buttons">
-              <button id="btn" className="btn btn_blue">
+              <Button id="btn" className="btn btn_blue">
                 拍照
-              </button>
+              </Button>
               <button
                 id="btn_cancel"
                 className="btn btn_blue"
@@ -106,11 +109,13 @@ class submissionAdd extends Component {
                 上传
               </button>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     );
   }
 }
 const BasicInputExampleWrapper = createForm()(submissionAdd);
-export default BasicInputExampleWrapper;
+export default connect(({ submission }) => ({ submission }))(
+  BasicInputExampleWrapper
+);

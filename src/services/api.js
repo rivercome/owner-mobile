@@ -42,6 +42,17 @@ export async function login(values) {
     tag
   );
 }
+export async function getSubmissionList() {
+  return request(`${basePath}/sjd/yzbx/list`, {
+    method: "GET"
+  });
+}
+export async function submitMessage(params) {
+  return request(`${basePath}/sjd/yzbx/create`, {
+    method: "POST",
+    body: params
+  });
+}
 // export async function fakeAccountLogin(params) {
 //   console.log('params', params);
 //   return request(`${API_PREFIX}/user/login`, {

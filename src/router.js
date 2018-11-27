@@ -2,7 +2,7 @@ import React from "react";
 import { Router, Route, Switch } from "dva/router";
 import IndexPage from "./routes/IndexPage";
 import Login from "./routes/Login/index";
-import submission from "./components/submissionAdd";
+import submission from "./routes/submission/index";
 import Vote from "./routes/Todo/Vote";
 import Home from "./routes/home";
 import qualityEvaluation from "./routes/Todo/qualityEvaluation";
@@ -14,6 +14,7 @@ import abcde from "./routes/dbsy";
 import Call from "./components/usualphone";
 import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
+import addSubmission from "./routes/submission/add";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -32,6 +33,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/call" component={Call} />
           <Route path="/loginFirst" component={loginFirst} />
           <Route path="/second" component={Second} />
+          <Route path="/addSubmission" component={addSubmission} />
         </Switch>
       </Layout>
     </Router>

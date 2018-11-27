@@ -41,59 +41,6 @@ class BasicInputExample extends Component {
       type: "login/handleLogin",
       payload: values
     });
-    //  console.log(values)
-    // this.props.form.validateFields( (values) => {
-
-    // const body = {a,b}
-    // axios({
-    //   method: 'post',
-    //   url: 'http://154.8.214.49:8080/yzzh/login',
-    //   data: {
-    //     login_name: a,
-    //     password: b,
-    //     login_type: "yzzh"
-    //   } }).then( (res) =>{
-    //     console.log(res)
-    //     localStorage.setItem("token",res.data.data.token)
-    //     console.log(body)
-    //     if (res.data.code ===1000 ){
-    //       // successToast();
-    //       console.log('props',this.props)
-    //       // localStorage.setItem("token",res.data.data.token)
-    //       this.props.history.push('/second')
-    //     }
-    //     else
-    //     { failToast();}
-    //   }).catch((e) =>{
-    //     console.log(e.message)
-    //   })
-    // }).then(res => {
-    //   alert("succ");
-    //   console.log(res);
-    //   // localStorage.setItem("token",res.data.data.token)
-    // });
-    // fetch('http://154.8.214.49:8080/user/login',
-    //   {
-    //      method: 'POST',
-    //      headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //      body: JSON.stringify(body)
-
-    // }).then( (res) =>{
-    //   console.log(res)
-    //   console.log(body)
-    //   if (res.status ===200 ){
-    //     successToast();
-    //   }
-    //   else
-    //   { failToast();}
-    // }).catch((e) =>{
-    //   console.log(e.message)
-    // })
-
-    // }
-    // )
   }
 
   handleClick = () => {
