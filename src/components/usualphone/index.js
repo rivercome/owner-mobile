@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
-import { Card } from "antd-mobile";
 
 const phoneInfo = [
   {
@@ -42,23 +41,18 @@ export default class Call extends React.Component {
   render() {
     return (
       <Fragment>
-        <Card>
-          <Card.Header title={<span className={styles.title}>常用电话</span>} />
-          <Card.Body>
-            <div>
-              <ul>
-                {phoneInfo.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      {`${item.content}` + "  " + `${item.num}`}
-                    </li>
-                  );
-                })}
-                <li />
-              </ul>
-            </div>
-          </Card.Body>
-        </Card>
+        <div className={styles.header}>
+          <p>常用电话</p>
+        </div>
+        <div className={styles.wrapper}>
+          <ul>
+            {phoneInfo.map((item, index) => {
+              return (
+                <li key={index}>{`${item.content}` + "  " + `${item.num}`}</li>
+              );
+            })}
+          </ul>
+        </div>
       </Fragment>
     );
   }

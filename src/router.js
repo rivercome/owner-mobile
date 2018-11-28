@@ -14,12 +14,22 @@ import abcde from "./routes/dbsy";
 import Call from "./components/usualphone";
 import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
+import Anouce from "./components/anousement";
+import CompanyInfo from "./components/companyinfo";
+import Main from "./components/maindemo";
+import Anoucecontent from "./components/anoucecontent";
+import NeigoborInfo from "./components/neighborinfo";
+import Rules from "./components/rules";
+import Rulescontent from "./components/rulescontent";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
       <Layout>
         <Switch>
           <Route path="/" exact component={IndexPage} />
+
+          <Route path="/main" component={Main} />
+
           <Route path="/login" component={Login} />
           <Route path="/home" component={Home} />
           <Route path="/list" component={ListInform} />
@@ -32,6 +42,12 @@ const RouterConfig = ({ history }) => {
           <Route path="/call" component={Call} />
           <Route path="/loginFirst" component={loginFirst} />
           <Route path="/second" component={Second} />
+          <Route path="/companyinfo" component={CompanyInfo} />
+          <Route path="/anouce" component={Anouce} />
+          <Route path="/anoucecontent" component={Anoucecontent} />
+          <Route path="/neighborinfo" component={NeigoborInfo} />
+          <Route path="/rules" component={Rules} />
+          <Route path="/rulescontent" component={Rulescontent} />
         </Switch>
       </Layout>
     </Router>
