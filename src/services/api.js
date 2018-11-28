@@ -19,9 +19,25 @@ export async function getDbsy() {
     method: "GET"
   });
 }
+
 export async function clickPush(id) {
   console.log("sdacsdcdscdscdcdscdscd");
   return request(`${basePath}/sjd/dbsx/zlpj/table?${id}`, {
     method: "GET"
+  });
+}
+
+export async function getList() {
+  //请求写在这里
+
+  console.log("hanwei");
+  return request(`${basePath}/sjd/yzxgxx/qyxx`, {
+    method: "GET"
+    // url: "http://154.8.214.49:8080/yzzh/login",
+    // headers: {
+    //   'Content-Type' : "13933528963",
+    //   'token': "maoqiu...",
+    //   'token_type': "yzzh"
+    // }
   });
 }

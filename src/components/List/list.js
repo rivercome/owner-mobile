@@ -1,46 +1,22 @@
 import React, { Component } from "react";
+import { connect } from "dva";
 import { List, WhiteSpace } from "antd-mobile";
 import { createForm } from "rc-form";
 import styles from "./list.less";
-import axios from "axios";
-
-const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
-  window.navigator.userAgent
-);
+import saveListmessage from "../../models/List";
 
 const Item = List.Item;
 
-if (isIPhone) {
-  let moneyKeyboardWrapProps;
-  moneyKeyboardWrapProps = {
-    onTouchStart: e => e.preventDefault()
-  };
-  console.log("?", moneyKeyboardWrapProps.onTouchStart);
-}
-// @createForm()
-
 class ListInformFun extends Component {
-  // componentDidMount() {
-  //   this.autoFocusInst.focus();
-  // }
-
   state = {
     disabled: false
   };
   // http://154.8.214.49:8080/sjd/yzxgxx/xqxx
   componentDidMount() {
-    axios({
-      method: "POST",
-      url: "http://154.8.214.49:8080/yzzh/login",
-      data: {
-        login_name: "13933528963",
-        password: "maoqiu...",
-        login_type: "yzzh"
-      }
-    }).then(res => {
-      alert("succ");
-      console.log(res);
-      localStorage.setItem("token", res.data.data.token);
+    console.log("token", localStorage);
+    this.props.dispatch({
+      type: "List/getList",
+      payload: ""
     });
   }
 
