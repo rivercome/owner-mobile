@@ -18,6 +18,7 @@ export default {
     }
   },
   *handleSubmit({ payload }, { call, put }) {
+    console.log("xasxasx");
     const response = yield call(submitMessage, payload);
     console.log("csdc");
     console.log(response);

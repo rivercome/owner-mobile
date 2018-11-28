@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "dva";
 import Add from "../../components/submissionAdd/index";
+
 class Submission extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(value) {
+  handleSubmit = value => {
+    console.log("lpf");
     this.props.dispatch({
       type: "submission/handleSubmit",
       payload: value
     });
-  }
+  };
   render() {
     return (
       <div>

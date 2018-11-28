@@ -5,7 +5,6 @@ import styles from "./index.css";
 import { Link } from "dva/router";
 import { Toast } from "antd-mobile";
 import { connect } from "dva";
-import axios from "axios";
 
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent

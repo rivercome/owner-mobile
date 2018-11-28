@@ -48,6 +48,7 @@ export async function getSubmissionList() {
   });
 }
 export async function submitMessage(params) {
+  console.log("llllllllllll");
   return request(`${basePath}/sjd/yzbx/create`, {
     method: "POST",
     body: params

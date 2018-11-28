@@ -11,19 +11,12 @@ class submissionAdd extends Component {
     this.state = {};
   }
   handleClick = () => {
-    // this.props.form.getFieldsValue((...value)=>{
-    //   console.log(...value)
-    // })
     const a = this.props.form.getFieldsValue().message;
     const b = this.props.form.getFieldsValue().phone;
     const c = this.props.form.getFieldsValue().count;
     const value = { a, b, c };
     console.log(value);
-    console.log(this.props.handleSubmit);
     this.props.handleSubmit(value);
-    this.props.handleSubmit(value => {
-      console.log(value);
-    });
   };
 
   render() {
