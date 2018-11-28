@@ -2,7 +2,7 @@ import request from "../utils/request";
 import config from "./config";
 
 const { basePath } = config;
-
+const tag = true;
 export async function getZlpj(params) {
   return request("/api/rule", {
     method: "POST",
@@ -26,6 +26,34 @@ export async function clickPush(id) {
     method: "GET"
   });
 }
+export async function login(values) {
+  console.log("dfsdf");
+  const body = {
+    login_name: values.a,
+    password: values.b,
+    login_type: "yzzh"
+  };
+  console.log(body);
+  return request(
+    `${basePath}/yzzh/login`,
+    {
+      method: "POST",
+      body: body
+    },
+    tag
+  );
+}
+// export async function fakeAccountLogin(params) {
+//   console.log('params', params);
+//   return request(`${API_PREFIX}/user/login`, {
+//     method: 'POST',
+//     body: {
+//       login_name: params.userName,
+//       password: params.password,
+//       login_type: 'qy',
+//     },
+//   });
+// }
 
 export async function getList() {
   //请求写在这里

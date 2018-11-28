@@ -12,6 +12,8 @@ import abc from "./components/oldBuilding";
 import abcd from "./routes/oldBuilding/zgsq";
 import abcde from "./routes/dbsy";
 import Call from "./components/usualphone";
+import loginFirst from "./routes/LoginFirst";
+import Second from "./routes/Second";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -28,6 +30,8 @@ const RouterConfig = ({ history }) => {
           <Route path="/e" component={abcd} />
           <Route path="/f" component={abcde} />
           <Route path="/call" component={Call} />
+          <Route path="/loginFirst" component={loginFirst} />
+          <Route path="/second" component={Second} />
         </Switch>
       </Layout>
     </Router>

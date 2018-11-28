@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { List, InputItem, WhiteSpace } from "antd-mobile";
+import { List, InputItem, Button } from "antd-mobile";
 import { createForm } from "rc-form";
+import styles from "./index.css";
+import { Link } from "dva/router";
+import { Toast } from "antd-mobile";
+import { connect } from "dva";
+import axios from "axios";
 
 const isIPhone = new RegExp("\\biPhone\\b|\\biPod\\b", "i").test(
   window.navigator.userAgent
@@ -13,116 +18,140 @@ if (isIPhone) {
   };
   console.log("?", moneyKeyboardWrapProps.onTouchStart);
 }
-// @createForm()
+
+function failToast() {
+  Toast.fail("Load failed !!!", 1);
+}
+
 class BasicInputExample extends Component {
-  componentDidMount() {
-    this.autoFocusInst.focus();
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const a = this.props.form.getFieldsValue().login_name;
+    const b = this.props.form.getFieldsValue().password;
+    const values = { a, b };
+    this.props.dispatch({
+      type: "login/handleLogin",
+      payload: values
+    });
+    //  console.log(values)
+    // this.props.form.validateFields( (values) => {
+
+    // const body = {a,b}
+    // axios({
+    //   method: 'post',
+    //   url: 'http://154.8.214.49:8080/yzzh/login',
+    //   data: {
+    //     login_name: a,
+    //     password: b,
+    //     login_type: "yzzh"
+    //   } }).then( (res) =>{
+    //     console.log(res)
+    //     localStorage.setItem("token",res.data.data.token)
+    //     console.log(body)
+    //     if (res.data.code ===1000 ){
+    //       // successToast();
+    //       console.log('props',this.props)
+    //       // localStorage.setItem("token",res.data.data.token)
+    //       this.props.history.push('/second')
+    //     }
+    //     else
+    //     { failToast();}
+    //   }).catch((e) =>{
+    //     console.log(e.message)
+    //   })
+    // }).then(res => {
+    //   alert("succ");
+    //   console.log(res);
+    //   // localStorage.setItem("token",res.data.data.token)
+    // });
+    // fetch('http://154.8.214.49:8080/user/login',
+    //   {
+    //      method: 'POST',
+    //      headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //      body: JSON.stringify(body)
+
+    // }).then( (res) =>{
+    //   console.log(res)
+    //   console.log(body)
+    //   if (res.status ===200 ){
+    //     successToast();
+    //   }
+    //   else
+    //   { failToast();}
+    // }).catch((e) =>{
+    //   console.log(e.message)
+    // })
+
+    // }
+    // )
+  }
+
   handleClick = () => {
-    console.log("22", this.inputRef.focus());
+    // console.log("22", this.inputRef.focus());
     console.log("this", this.props.form.getFieldsValue());
-    this.inputRef.focus();
+    // this.inputRef.focus();
   };
   render() {
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List renderHeader={() => "帐号登录"}>
+        <List>
           <InputItem
-            {...getFieldProps("autofocus")}
-            clear
-            placeholder="auto focus"
-            ref={el => (this.autoFocusInst = el)}
+            {...getFieldProps("login_name", {
+              rules: [
+                { required: true, message: "Please input your username!" }
+              ]
+            })}
           >
-            <div onClick={() => this.labelFocusInst.focus()}>用户名</div>
+            登录账号
           </InputItem>
           <InputItem
-            placeholder="帐号"
+            placeholder=" "
             type="password"
-            ref={el => (this.labelFocusInst = el)}
+            name="password"
+            {...getFieldProps("password", {
+              rules: [
+                { required: true, message: "Please input your Password!" }
+              ]
+            })}
           >
-            <div onClick={() => this.labelFocusInst.focus()}>密码</div>
+            登录密码
           </InputItem>
+          <p align="right">
+            {/* <a>ad a </a> */}
+            <Link to="/loginFirst">首次登录？</Link>
+          </p>
+
           <List.Item>
-            <div
-              style={{ width: "100%", color: "#108ee9", textAlign: "center" }}
-              onClick={this.handleClick}
+            <Button
+              type="ghost"
+              size="large"
+              onClick={this.handleSubmit}
+              className={styles.am_button_re}
             >
-              click to focus
-            </div>
+              登陆
+            </Button>
+
+            <Button type="ghost" size="large" className={styles.am_button_re}>
+              重置
+            </Button>
           </List.Item>
         </List>
-
-        <WhiteSpace />
-
-        <List renderHeader={() => "Number of words for title"}>
-          <InputItem
-            {...getFieldProps("label8")}
-            placeholder="limited title length"
-            labelNumber={5}
-          >
-            标题过长超过默认的5个字
-          </InputItem>
-        </List>
-
-        <WhiteSpace />
-
-        <List renderHeader={() => "Custom title（text / image / empty)"}>
-          <InputItem {...getFieldProps("input3")} placeholder="no label" />
-          <InputItem
-            {...getFieldProps("inputtitle2")}
-            placeholder="title can be icon，image or text"
-          >
-            <div
-              style={{
-                backgroundImage:
-                  "url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)",
-                backgroundSize: "cover",
-                height: "22px",
-                width: "22px"
-              }}
-            />
-          </InputItem>
-        </List>
-
-        <WhiteSpace />
-
-        <WhiteSpace />
-        <List renderHeader={() => "Format"}>
-          <InputItem
-            {...getFieldProps("phone")}
-            type="phone"
-            placeholder="186 1234 1234"
-          >
-            手机号码
-          </InputItem>
-          <InputItem
-            {...getFieldProps("password")}
-            type="password"
-            placeholder="****"
-          >
-            密码
-          </InputItem>
-          <InputItem
-            {...getFieldProps("number")}
-            type="number"
-            placeholder="click to show number keyboard"
-          >
-            数字键盘
-          </InputItem>
-          <InputItem
-            {...getFieldProps("digit")}
-            type="digit"
-            placeholder="click to show native number keyboard"
-          >
-            数字键盘
-          </InputItem>
-        </List>
-        <WhiteSpace />
+        {/* <WhiteSpace /> */}
       </div>
     );
   }
 }
 
 const BasicInputExampleWrapper = createForm()(BasicInputExample);
-export default BasicInputExampleWrapper;
+export default connect(({ login }) => ({ login }))(BasicInputExampleWrapper);
