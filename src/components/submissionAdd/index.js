@@ -10,18 +10,55 @@ class submissionAdd extends Component {
     super(props);
     this.state = {};
   }
+  getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var second = date.getSeconds();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    if (second >= 0 && second <= 9) {
+      second = "0" + second;
+    }
+    var day = date.getMinutes();
+    if (day >= 0 && day <= 9) {
+      day = "0" + day;
+    }
+    var currentdate =
+      date.getFullYear() +
+      seperator1 +
+      month +
+      seperator1 +
+      strDate +
+      " " +
+      date.getHours() +
+      seperator2 +
+      day +
+      seperator2 +
+      second;
+    return currentdate;
+  }
   handleClick = () => {
     const a = this.props.form.getFieldsValue().message;
     const b = this.props.form.getFieldsValue().phone;
     const c = this.props.form.getFieldsValue().count;
-    const value = { a, b, c };
-    console.log(value);
+    const time = this.getNowFormatDate();
+    const value = {
+      slxdh: b,
+      sbxsx: a,
+      sbxnr: c,
+      dbxrq: time
+    };
     this.props.handleSubmit(value);
   };
 
   render() {
-    // const abc=this.props
-    // console.log(abc)
     const { getFieldProps } = this.props.form;
     return (
       <div className={styles.box}>

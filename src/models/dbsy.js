@@ -27,22 +27,21 @@ export default {
         }
       });
     }
-  },
-  *clickPush({ payload }, { call, put }) {
-    // eslint-disable-line
-    console.log("111111");
-    const response = yield call(clickPush, payload);
-    console.log(response);
-    // yield put({
-    //   type: 'saveValue',
-    //   payload: {
-    //     response
-    //   },
-    // });
-    // get successfully
-    // if(response.code===1000){
-    //   yield put(routerRedux.push('/d'))
-    // }
+    // *clickPush({ payload }, { call, put }) {
+    //   // eslint-disable-line
+    //   console.log("111111");
+    //   const response = yield call(clickPush, payload);
+    //   console.log(response);
+    //   yield put({
+    //     type: 'saveValue',
+    //     payload: {
+    //       response
+    //     },
+    //   });
+    //   if(response.code===1000){
+    //     yield put(routerRedux.push('/d'))
+    //   }
+    // },
   },
 
   reducers: {

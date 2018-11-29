@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, List } from "antd-mobile";
+import { Link } from "dva/router";
 import styles from "./index.less";
 
 const Item = List.Item;
@@ -35,7 +36,7 @@ class submission extends Component {
                 </div>
                 <div className={styles.button}>
                   <Button inline size="small" style={{ marginRight: "4px" }}>
-                    详情
+                    <Link to={`/bxDetail/${item.id}`}> 详情</Link>
                   </Button>
                 </div>
               </div>

@@ -15,6 +15,7 @@ import Call from "./components/usualphone";
 import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
 import addSubmission from "./routes/submission/add";
+import bxDetail from "./routes/submission/detail";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -24,7 +25,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/login" component={Login} />
           <Route path="/home" component={Home} />
           <Route path="/list" component={ListInform} />
-          <Route path="/a" component={submission} />
+          <Route path="/submissionList" component={submission} />
           <Route path="/b" component={Vote} />
           <Route path="/c" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
@@ -34,6 +35,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/loginFirst" component={loginFirst} />
           <Route path="/second" component={Second} />
           <Route path="/addSubmission" component={addSubmission} />
+          <Route path="/bxDetail/:id" component={bxDetail} />
         </Switch>
       </Layout>
     </Router>

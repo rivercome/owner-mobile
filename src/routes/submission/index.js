@@ -29,10 +29,10 @@ class Submission extends Component {
         <div>
           <span>业主保修信息</span>
           {/* <Button >新增</Button> */}
-          <Link to="./">
-            {" "}
-            <Button>新增</Button>
-          </Link>
+
+          <Button>
+            <Link to="/addSubmission">新增</Link>
+          </Button>
         </div>
         <SubmitContent content={content} />
       </div>

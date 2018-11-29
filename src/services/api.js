@@ -1,5 +1,6 @@
 import request from "../utils/request";
 import config from "./config";
+import { func } from "prop-types";
 
 const { basePath } = config;
 const tag = true;
@@ -52,6 +53,22 @@ export async function submitMessage(params) {
   return request(`${basePath}/sjd/yzbx/create`, {
     method: "POST",
     body: params
+  });
+}
+export async function submitThing(params) {
+  return request(`${basePath}/sjd/yzbx/eva/${params.id}`, {
+    method: "POST",
+    body: params.body
+  });
+}
+export async function handleCx(params) {
+  return request(`${basePath}/sjd/yzbx/recall/${params}`, {
+    method: "DELETE"
+  });
+}
+export async function getDetail(params) {
+  return request(`${basePath}/sjd/yzbx/one/${params}`, {
+    method: "GET"
   });
 }
 // export async function fakeAccountLogin(params) {
