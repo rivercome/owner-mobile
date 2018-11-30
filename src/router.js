@@ -14,6 +14,9 @@ import abcde from "./routes/dbsy";
 import Call from "./components/usualphone";
 import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
+import Message from "./routes/yeweihui/Message";
+import Record from "./routes/yeweihui/Record";
+import Details from "./routes/yeweihui/Details";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -32,6 +35,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/call" component={Call} />
           <Route path="/loginFirst" component={loginFirst} />
           <Route path="/second" component={Second} />
+          <Route path="/aha" component={Message} />
+          <Route path="/ahb" component={Record} />
+          <Route path="/ahc" component={Details} />
+          <Route />
         </Switch>
       </Layout>
     </Router>
