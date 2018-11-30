@@ -16,6 +16,8 @@ import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
 import addSubmission from "./routes/submission/add";
 import bxDetail from "./routes/submission/detail";
+import tousu from "./routes/tousu/index";
+import addTs from "./routes/tousu/add";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -36,6 +38,8 @@ const RouterConfig = ({ history }) => {
           <Route path="/second" component={Second} />
           <Route path="/addSubmission" component={addSubmission} />
           <Route path="/bxDetail/:id" component={bxDetail} />
+          <Route path="/tousuList" component={tousu} />
+          <Route path="/addTs" component={addTs} />
         </Switch>
       </Layout>
     </Router>

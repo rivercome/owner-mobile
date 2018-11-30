@@ -12,12 +12,12 @@ class Submission extends Component {
   handleSubmit = value => {
     console.log("lpf");
     this.props.dispatch({
-      type: "submission/handleSubmit",
+      type: "tousu/handleSubmit",
       payload: value
     });
   };
   render() {
-    const a = 1;
+    const a = 2;
     return (
       <div>
         <Add handleSubmit={this.handleSubmit} tag={a} />
@@ -25,4 +25,4 @@ class Submission extends Component {
     );
   }
 }
-export default connect(({ submission }) => ({ submission }))(Submission);
+export default connect(({ tousu }) => ({ tousu }))(Submission);

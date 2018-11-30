@@ -21,6 +21,7 @@ const app = dva({
 app.model(require("./models/dbsy.js").default);
 app.model(require("./models/login.js").default);
 app.model(require("./models/submission.js").default);
+app.model(require("./models/ts.js").default);
 
 // 4. Router
 app.router(require("./router").default);

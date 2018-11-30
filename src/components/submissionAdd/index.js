@@ -55,7 +55,18 @@ class submissionAdd extends Component {
       sbxnr: c,
       dbxrq: time
     };
-    this.props.handleSubmit(value);
+    const content = {
+      dtsrq: time,
+      stssx: a,
+      stsnr: c,
+      slxdh: b
+    };
+    const tag = this.props.tag;
+    if (tag === 1) {
+      this.props.handleSubmit(value);
+    } else if (tag === 2) {
+      this.props.handleSubmit(content);
+    }
   };
 
   render() {

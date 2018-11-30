@@ -71,6 +71,17 @@ export async function getDetail(params) {
     method: "GET"
   });
 }
+export async function getTsList() {
+  return request(`${basePath}/wyyz/tsjb/type`, {
+    method: "GET"
+  });
+}
+export async function handleTsSubmit(params) {
+  return request(`${basePath}/wyyz/tsjb`, {
+    method: "POST",
+    body: params
+  });
+}
 // export async function fakeAccountLogin(params) {
 //   console.log('params', params);
 //   return request(`${API_PREFIX}/user/login`, {
