@@ -21,6 +21,9 @@ import Anoucecontent from "./components/anoucecontent";
 import NeigoborInfo from "./components/neighborinfo";
 import Rules from "./components/rules";
 import Rulescontent from "./components/rulescontent";
+import Message from "./routes/yeweihui/Message";
+import Record from "./routes/yeweihui/Record";
+import Details from "./routes/yeweihui/Details";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -48,6 +51,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/neighborinfo" component={NeigoborInfo} />
           <Route path="/rules" component={Rules} />
           <Route path="/rulescontent" component={Rulescontent} />
+          <Route path="/aha" component={Message} />
+          <Route path="/ahb" component={Record} />
+          <Route path="/ahc" component={Details} />
+          <Route />
         </Switch>
       </Layout>
     </Router>
