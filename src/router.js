@@ -26,6 +26,9 @@ import gzfa from "./routes/oldBuilding/gzfa";
 import zxys from "./routes/oldBuilding/zxys";
 import glms from "./routes/oldBuilding/glms";
 import zxpj from "./routes/oldBuilding/zxpj";
+import Message from "./routes/yeweihui/Message";
+import Record from "./routes/yeweihui/Record";
+import Details from "./routes/yeweihui/Details";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -56,6 +59,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/zxys/:id" component={zxys} />
           <Route path="/glms/:id" component={glms} />
           <Route path="/zxpj/:id" component={zxpj} />
+          <Route path="/aha" component={Message} />
+          <Route path="/ahb" component={Record} />
+          <Route path="/ahc" component={Details} />
+          <Route />
         </Switch>
       </Layout>
     </Router>

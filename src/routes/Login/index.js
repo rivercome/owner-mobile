@@ -49,6 +49,7 @@ class BasicInputExample extends Component {
   };
   render() {
     const { getFieldProps } = this.props.form;
+    console.log(this.props);
     return (
       <div>
         <List>
