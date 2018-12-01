@@ -60,8 +60,8 @@ class Detail extends Component {
     value = e.target.value;
   };
   handleCx = () => {
-    const id = this.props.id;
-    this.props.handleCx(id);
+    // const id = this.props.id;
+    // this.props.handleCx(id);
   };
   handleSubmit = () => {
     let a = this.props.form.getFieldsValue().bmy;

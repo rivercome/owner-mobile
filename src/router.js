@@ -18,6 +18,10 @@ import addSubmission from "./routes/submission/add";
 import bxDetail from "./routes/submission/detail";
 import tousu from "./routes/tousu/index";
 import addTs from "./routes/tousu/add";
+import tsDetail from "./routes/tousu/detail";
+import jyList from "./routes/yzjy";
+import addJy from "./routes/yzjy/add";
+import jyDetail from "./routes/yzjy/detail";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -28,7 +32,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/home" component={Home} />
           <Route path="/list" component={ListInform} />
           <Route path="/submissionList" component={submission} />
-          <Route path="/b" component={Vote} />
+          <Route path="/vote/:id" component={Vote} />
           <Route path="/qualityEvaluation/:id" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
           <Route path="/oldBudildingZgsq" component={zgsq} />
@@ -40,6 +44,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/bxDetail/:id" component={bxDetail} />
           <Route path="/tousuList" component={tousu} />
           <Route path="/addTs" component={addTs} />
+          <Route path="/tsDetail/:id" component={tsDetail} />
+          <Route path="/jianYiList" component={jyList} />
+          <Route path="/addJy" component={addJy} />
+          <Route path="/jyDetail/:id" component={jyDetail} />
         </Switch>
       </Layout>
     </Router>

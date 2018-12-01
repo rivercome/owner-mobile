@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "dva";
 import Add from "../../components/submissionAdd/index";
-import submission from "../../components/submission";
 
 class Submission extends Component {
   constructor(props) {
@@ -13,12 +12,12 @@ class Submission extends Component {
     console.log("lpf");
     // console.log(value)
     this.props.dispatch({
-      type: "tousu/handleSubmit",
+      type: "jianyi/handleSubmit",
       payload: value
     });
   };
   render() {
-    const a = 2;
+    const a = 3;
     return (
       <div>
         <Add handleSubmit={this.handleSubmit} tag={a} />
@@ -26,4 +25,4 @@ class Submission extends Component {
     );
   }
 }
-export default connect(({ tousu }) => ({ tousu }))(Submission);
+export default connect(({ jianyi }) => ({ jianyi }))(Submission);

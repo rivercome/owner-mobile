@@ -56,9 +56,15 @@ class submissionAdd extends Component {
       dbxrq: time
     };
     const content = {
-      dtsrq: time,
-      stssx: a,
-      stsnr: c,
+      dTsrq: time,
+      sTssx: a,
+      sTsnr: c,
+      slxdh: b
+    };
+    const values = {
+      djyrq: time,
+      sjysx: a,
+      sjynr: c,
       slxdh: b
     };
     const tag = this.props.tag;
@@ -66,6 +72,8 @@ class submissionAdd extends Component {
       this.props.handleSubmit(value);
     } else if (tag === 2) {
       this.props.handleSubmit(content);
+    } else {
+      this.props.handleSubmit(values);
     }
   };
 

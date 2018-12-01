@@ -30,6 +30,13 @@ class DBSY extends Component {
           query: { id: id }
         })
       );
+    } else if (type == "02") {
+      this.props.dispatch(
+        routerRedux.push({
+          pathname: `/vote/${id}`,
+          query: { id: id }
+        })
+      );
     }
   };
   render() {

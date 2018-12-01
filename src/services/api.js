@@ -81,9 +81,53 @@ export async function getTsList() {
   });
 }
 export async function handleTsSubmit(params) {
+  console.log(params);
   return request(`${basePath}/sjd/yzts/create`, {
     method: "POST",
     body: params
+  });
+}
+export async function tousuSubmit(params) {
+  return request(`${basePath}/sjd/yzts/eva/${params.id}`, {
+    method: "POST",
+    body: params.body
+  });
+}
+export async function tousuCx(params) {
+  return request(`${basePath}/sjd/yzts/recall/${params}`, {
+    method: "DELETE"
+  });
+}
+export async function tousuGetDetail(params) {
+  return request(`${basePath}/sjd/yzts/one/${params}`, {
+    method: "GET"
+  });
+}
+export async function getJyList() {
+  return request(`${basePath}/sjd/yzjy/list`, {
+    method: "GET"
+  });
+}
+export async function handleJySubmit(params) {
+  return request(`${basePath}/sjd/yzjy/create`, {
+    method: "POST",
+    body: params
+  });
+}
+export async function jianYiGetDetail(params) {
+  return request(`${basePath}/sjd/yzjy/one/${params}`, {
+    method: "GET"
+  });
+}
+export async function jianYiSubmit(params) {
+  return request(`${basePath}/sjd/yzjy/eva/${params.id}`, {
+    method: "POST",
+    body: params.body
+  });
+}
+export async function jianYiCx(params) {
+  return request(`${basePath}/sjd/yzjy/recall/${params}`, {
+    method: "DELETE"
   });
 }
 // export async function fakeAccountLogin(params) {

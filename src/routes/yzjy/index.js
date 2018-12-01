@@ -12,7 +12,7 @@ class Submission extends Component {
   }
   getData() {
     this.props.dispatch({
-      type: "tousu/getTsList",
+      type: "jianyi/getJyList",
       payload: ""
     });
   }
@@ -20,7 +20,7 @@ class Submission extends Component {
     this.getData();
   }
   render() {
-    const value = this.props.tousu.list;
+    const value = this.props.jianyi.list;
     console.log(value);
     let content = value === undefined ? [] : value.data;
     console.log(content);
@@ -30,21 +30,21 @@ class Submission extends Component {
           return (
             <div className={styles.content}>
               <div className={styles.message}>
-                <span>投诉事项:</span>
-                <span>{item.stssx}</span>
+                <span>建议事项:</span>
+                <span>{item.sjysx}</span>
                 <br />
-                <span>投诉时间:</span>
-                <span>{item.dtsrq}</span>
+                <span>建议时间:</span>
+                <span>{item.djyrq}</span>
                 <br />
                 <span>处理状态：</span>
                 <span>{item.sslzt}</span>
                 <br />
-                <span>数据状态</span>
+                <span>数据状态:</span>
                 <span>{item.sstatus}</span>
               </div>
               <div className={styles.button}>
                 <Button inline size="small" style={{ marginRight: "4px" }}>
-                  <Link to={`/tsDetail/${item.id}`}> 详情</Link>
+                  <Link to={`/jyDetail/${item.id}`}> 详情</Link>
                 </Button>
               </div>
             </div>
@@ -55,15 +55,15 @@ class Submission extends Component {
     return (
       <div>
         <div>
-          <span>业主投诉信息</span>
+          <span>业主建议信息</span>
 
           <Button>
-            <Link to="/addTs">新增</Link>
+            <Link to="/addJy">新增</Link>
           </Button>
         </div>
-        <SubmitContent content={content} value={abc} />
+        <SubmitContent value={abc} />
       </div>
     );
   }
 }
-export default connect(({ tousu }) => ({ tousu }))(Submission);
+export default connect(({ jianyi }) => ({ jianyi }))(Submission);
