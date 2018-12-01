@@ -9,8 +9,8 @@ import qualityEvaluation from "./routes/Todo/qualityEvaluation";
 import ListInform from "./components/List/list";
 import Layout from "./components/Layout";
 import abc from "./components/oldBuilding";
-import abcd from "./routes/oldBuilding/zgsq";
-import abcde from "./routes/dbsy";
+import zgsq from "./routes/oldBuilding/zgsq";
+import dbsy from "./routes/dbsy";
 import Call from "./components/usualphone";
 import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
@@ -29,10 +29,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/list" component={ListInform} />
           <Route path="/submissionList" component={submission} />
           <Route path="/b" component={Vote} />
-          <Route path="/c" component={qualityEvaluation} />
+          <Route path="/qualityEvaluation/:id" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
-          <Route path="/e" component={abcd} />
-          <Route path="/f" component={abcde} />
+          <Route path="/oldBudildingZgsq" component={zgsq} />
+          <Route path="/dbsy" component={dbsy} />
           <Route path="/call" component={Call} />
           <Route path="/loginFirst" component={loginFirst} />
           <Route path="/second" component={Second} />

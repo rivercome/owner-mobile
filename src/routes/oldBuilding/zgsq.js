@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "dva";
 import OldBuilding from "../../components/oldBuilding";
 
 class ZGSQ extends Component {
@@ -17,4 +18,4 @@ class ZGSQ extends Component {
     );
   }
 }
-export default ZGSQ;
+export default connect(({ oldBuilding }) => ({ oldBuilding }))(ZGSQ);

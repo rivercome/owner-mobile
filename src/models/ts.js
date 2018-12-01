@@ -26,10 +26,10 @@ export default {
     *handleSubmit({ payload }, { call }) {
       const response = yield call(handleTsSubmit, payload);
       console.log(response);
-      if (response.code === 1000) {
-        message.success("提交成功");
-        routerRedux.push("/tousuList");
-      }
+      // if (response.code === 1000) {
+      //   message.success("提交成功");
+      //   routerRedux.push("/tousuList");
+      // }
     }
   },
 

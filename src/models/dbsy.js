@@ -1,4 +1,4 @@
-import { getDbsy, clickPush } from "../services/api";
+import { getDbsy, getQualityData, submitQuality } from "../services/api";
 import { push } from "react-router-redux";
 import { routerRedux } from "dva/router";
 
@@ -16,16 +16,22 @@ export default {
 
   effects: {
     *getDbsy({ payload }, { call, put }) {
-      console.log("lpf2"); // eslint-disable-line
+      // eslint-disable-line
       const response = yield call(getDbsy, payload);
       console.log(response);
-      // const res = response.data;
+      const res = response.data;
       yield put({
         type: "saveContent",
-        payload: {
-          response
-        }
+        payload: res
       });
+    },
+    *getQualityData({ payload }, { call, put }) {
+      const response = yield call(getQualityData, payload);
+      console.log(response);
+    },
+    *submitQuality({ payload }, { call }) {
+      const response = yield call(submitQuality, payload);
+      console.log(response);
     }
     // *clickPush({ payload }, { call, put }) {
     //   // eslint-disable-line

@@ -15,15 +15,19 @@ export async function getZlpj(params) {
 }
 
 export async function getDbsy() {
-  console.log("lpf");
   return request(`${basePath}/sjd/dbsx/list`, {
     method: "GET"
   });
 }
-export async function clickPush(id) {
-  console.log("sdacsdcdscdscdcdscdscd");
-  return request(`${basePath}/sjd/dbsx/zlpj/table?${id}`, {
+export async function getQualityData(id) {
+  return request(`${basePath}/sjd/dbsx/zlpj/table/${id}`, {
     method: "GET"
+  });
+}
+export async function submitQuality(params) {
+  return request(`${basePath}/sjd/dbsx/zlpj/vote/${params.id}`, {
+    method: "POST",
+    body: params.value
   });
 }
 export async function login(values) {
@@ -72,12 +76,12 @@ export async function getDetail(params) {
   });
 }
 export async function getTsList() {
-  return request(`${basePath}/wyyz/tsjb/type`, {
+  return request(`${basePath}/sjd/yzts/list`, {
     method: "GET"
   });
 }
 export async function handleTsSubmit(params) {
-  return request(`${basePath}/wyyz/tsjb`, {
+  return request(`${basePath}/sjd/yzts/create`, {
     method: "POST",
     body: params
   });
