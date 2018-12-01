@@ -1,6 +1,6 @@
 import request from "../utils/request";
 import config from "./config";
-import { func } from "prop-types";
+// import { func } from "prop-types";
 
 const { basePath } = config;
 const tag = true;
@@ -28,6 +28,39 @@ export async function submitQuality(params) {
   return request(`${basePath}/sjd/dbsx/zlpj/vote/${params.id}`, {
     method: "POST",
     body: params.value
+  });
+}
+export async function getZgsqData(params) {
+  // return request(`${basePath}/`)
+}
+export async function gzsqTp(params) {
+  return request(`${basePath}/sjd/ljxq/zgsq/tp`, {
+    method: "POST",
+    body: params
+  });
+}
+export async function gzfaTp(params) {
+  return request(`${basePath}//sjd/ljxq/gzfa/tp`, {
+    method: "POST",
+    body: params
+  });
+}
+export async function zxysTp(params) {
+  return request(`${basePath}/sjd/ljxq/zxys/qr`, {
+    method: "POST",
+    body: params
+  });
+}
+export async function glmsTp(params) {
+  return request(`${basePath}/sjd/ljxq/glms/qr`, {
+    method: "POST",
+    body: params
+  });
+}
+export async function zxpjTp(params) {
+  return request(`${basePath}/sjd/ljxq/zxpj/dafen`, {
+    method: "POST",
+    body: params
   });
 }
 export async function login(values) {

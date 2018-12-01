@@ -37,6 +37,38 @@ class DBSY extends Component {
           query: { id: id }
         })
       );
+    } else if (type == "03") {
+      this.props.dispatch(
+        routerRedux.push({
+          pathname: `/zgsq/${id}`,
+          query: { id: id }
+        })
+      );
+    } else if (type == "04") {
+      this.props.dispatch(
+        routerRedux.push({
+          pathname: `/gzfa/${id}`,
+          query: { id: id }
+        })
+      );
+    } else if (type == "05") {
+      this.props.dispatch(
+        routerRedux.push({
+          pathname: `/zxys/${id}`
+        })
+      );
+    } else if (type == "06") {
+      this.props.dispatch(
+        routerRedux.push({
+          pathname: `/glms/${id}`
+        })
+      );
+    } else {
+      this.props.dispatch(
+        routerRedux.push({
+          pathname: `/zxpj/${id}`
+        })
+      );
     }
   };
   render() {

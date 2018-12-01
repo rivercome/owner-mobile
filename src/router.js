@@ -22,6 +22,10 @@ import tsDetail from "./routes/tousu/detail";
 import jyList from "./routes/yzjy";
 import addJy from "./routes/yzjy/add";
 import jyDetail from "./routes/yzjy/detail";
+import gzfa from "./routes/oldBuilding/gzfa";
+import zxys from "./routes/oldBuilding/zxys";
+import glms from "./routes/oldBuilding/glms";
+import zxpj from "./routes/oldBuilding/zxpj";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -35,7 +39,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/vote/:id" component={Vote} />
           <Route path="/qualityEvaluation/:id" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
-          <Route path="/oldBudildingZgsq" component={zgsq} />
+          <Route path="/zgsq/:id" component={zgsq} />
           <Route path="/dbsy" component={dbsy} />
           <Route path="/call" component={Call} />
           <Route path="/loginFirst" component={loginFirst} />
@@ -48,6 +52,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/jianYiList" component={jyList} />
           <Route path="/addJy" component={addJy} />
           <Route path="/jyDetail/:id" component={jyDetail} />
+          <Route path="/gzfa/:id" component={gzfa} />
+          <Route path="/zxys/:id" component={zxys} />
+          <Route path="/glms/:id" component={glms} />
+          <Route path="/zxpj/:id" component={zxpj} />
         </Switch>
       </Layout>
     </Router>
