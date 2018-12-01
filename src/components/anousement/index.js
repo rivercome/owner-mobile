@@ -2,13 +2,38 @@ import React, { Fragment } from "react";
 import styles from "./index.less";
 import { Select } from "antd";
 import { Card, SearchBar, Button, WhiteSpace, WingBlank } from "antd-mobile";
+import { List } from "antd";
+
 const Option = Select.Option;
 
 const data = [{}, {}];
+
 export default class Anouce extends React.Component {
   state = {
-    value: ""
+    value: "",
+    mydata: ""
   };
+
+  getData() {
+    fetch("http://154.8.214.49:8080/sjd/tzgg/search", {
+      method: "GET",
+      headers: {
+        token: localStorage.token,
+        token_type: "yz"
+      }
+    }).then(res =>
+      res.json().then(data => {
+        // console.log(data);
+        this.setState({
+          mydata: data
+        });
+      })
+    );
+  }
+  componentWillMount() {
+    this.getData();
+  }
+
   componentDidMount() {
     this.autoFocusInst.focus();
   }
@@ -23,6 +48,7 @@ export default class Anouce extends React.Component {
   };
 
   render() {
+    console.log(this.state.mydata.data);
     return (
       <Fragment>
         <div className={styles.wrapper}>
@@ -48,7 +74,24 @@ export default class Anouce extends React.Component {
         </div>
         <div className={styles.content}>
           <p>通知公告</p>
-          <hr />
+          <ul>
+            {this.state.mydata.data
+              ? this.state.mydata.data.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <div className={styles.top}>
+                        <p className={styles.title}>{item.sbt}</p>
+                        <p className={styles.date}>{item.dfbsj}</p>
+                      </div>
+                      <div className={styles.bottom}>
+                        <p className={styles.comp}>发布单位: {item.sfbr}`</p>
+                        <p className={styles.see}>查看</p>
+                      </div>
+                    </li>
+                  );
+                })
+              : ""}
+          </ul>
         </div>
       </Fragment>
     );

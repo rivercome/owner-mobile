@@ -37,8 +37,30 @@ const phoneInfo = [
 ];
 
 export default class Call extends React.Component {
-  state = {};
+  getData() {
+    fetch("http://154.8.214.49:8080/sjd/cydh/all", {
+      method: "GET",
+      headers: {
+        token: localStorage.token,
+        token_type: "yz"
+      }
+    }).then(res =>
+      res.json().then(data => {
+        // console.log(data);
+        this.setState({
+          mydata: data
+        });
+      })
+    );
+  }
+  componentDidMount() {
+    this.getData();
+  }
+  state = {
+    mydata: ""
+  };
   render() {
+    // console.log(this.state.mydata.data);
     return (
       <Fragment>
         <div className={styles.header}>

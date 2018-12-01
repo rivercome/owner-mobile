@@ -7,7 +7,8 @@ const Option = Select.Option;
 const data = [{}, {}];
 export default class Rules extends React.Component {
   state = {
-    value: ""
+    value: "",
+    mydata: ""
   };
   componentDidMount() {
     this.autoFocusInst.focus();
@@ -21,6 +22,26 @@ export default class Rules extends React.Component {
   handleClick = () => {
     this.manualFocusInst.focus();
   };
+
+  getData() {
+    fetch("http://154.8.214.49:8080/sjd/zcfg/search", {
+      method: "GET",
+      headers: {
+        token: localStorage.token,
+        token_type: "yz"
+      }
+    }).then(res =>
+      res.json().then(data => {
+        // console.log(data);
+        this.setState({
+          mydata: data
+        });
+      })
+    );
+  }
+  componentWillMount() {
+    this.getData();
+  }
 
   render() {
     return (
@@ -46,9 +67,29 @@ export default class Rules extends React.Component {
             ref={ref => (this.autoFocusInst = ref)}
           />
         </div>
-        <div className={styles.content}>
+        <div className={styles.content0}>
           <p className={styles.title1}>政策法规</p>
           <p className={styles.title2}>管理规范</p>
+          <div className={styles.content}>
+            <ul>
+              {this.state.mydata.data
+                ? this.state.mydata.data.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <div className={styles.top}>
+                          <p className={styles.title}>{item.sbt}</p>
+                          <p className={styles.date}>{item.dfbsj}</p>
+                        </div>
+                        <div className={styles.bottom}>
+                          <p className={styles.comp}>发布单位: {item.sfbr}`</p>
+                          <p className={styles.see}>查看</p>
+                        </div>
+                      </li>
+                    );
+                  })
+                : ""}
+            </ul>
+          </div>
         </div>
       </Fragment>
     );

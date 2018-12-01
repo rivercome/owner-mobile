@@ -2,6 +2,28 @@ import React, { Fragment } from "react";
 import styles from "./index.less";
 
 export default class Anoucecontent extends React.Component {
+  getData() {
+    fetch(" http://154.8.214.49:8080/sjd/tzgg/one/10000000002338", {
+      method: "GET",
+      headers: {
+        token: localStorage.token,
+        token_type: "yz"
+      }
+    }).then(res =>
+      res.json().then(data => {
+        console.log(data);
+        this.setState({
+          mydata: data
+        });
+      })
+    );
+  }
+  componentDidMount() {
+    this.getData();
+  }
+  state = {
+    mydata: ""
+  };
   render() {
     return (
       <Fragment>
