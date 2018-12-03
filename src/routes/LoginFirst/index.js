@@ -5,10 +5,6 @@ import styles from "./index.css";
 import { Link } from "dva/router";
 import { connect } from "dva";
 
-// @connect (({ ccon}) => ({
-//   ccon,
-// }))
-
 class BasicInputExample extends Component {
   // componentDidMount() {
   //   // this.autoFocusInst.focus();
@@ -63,5 +59,4 @@ class BasicInputExample extends Component {
 }
 
 const BasicInputExampleWrapper = createForm()(BasicInputExample);
-export default BasicInputExampleWrapper;
-// ReactDOM.render(<BasicInputExampleWrapper />, mountNode);
+export default connect(({ login }) => ({ login }))(BasicInputExample);

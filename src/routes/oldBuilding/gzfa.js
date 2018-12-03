@@ -13,19 +13,19 @@ class ZGSQ extends Component {
   }
   componentDidMount() {
     const e = this.props.match.params.id;
-    this.props.dispatch({
-      type: "oldBuilding/getData",
-      payload: e
-    });
+    // this.props.dispatch({
+    //   type:'oldBuilding/getData',
+    //   payload:e
+    // })
   }
   handleSubmit = value => {
     this.props.dispatch({
-      type: "oldBuilding/gzsqTp",
+      type: "oldBuilding/gzfaTp",
       payload: value
     });
   };
   render() {
-    const a = 1;
+    const a = 2;
     return (
       <div>
         <OldBuilding
