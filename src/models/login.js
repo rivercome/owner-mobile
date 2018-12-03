@@ -6,11 +6,6 @@ export default {
 
   state: {},
 
-  // subscriptions: {
-  //   setup({ dispatch, history }) {  // eslint-disable-line
-  //   },
-  // },
-
   effects: {
     *handleLogin({ payload }, { call, put }) {
       // eslint-disable-line
@@ -24,14 +19,18 @@ export default {
         message.error("密码错误");
       } else if (response.code === 1020) {
         message.error("账号不存在");
-      } else if (response.code === 1022) {
+      } else if (response.code === 1032) {
+        yield put(routerRedux.push("/Second"));
       }
-      // yield put({ type: 'save' });
+      yield put({
+        type: "saveBuilding",
+        payload: { response }
+      });
     }
   },
 
   reducers: {
-    save(state, action) {
+    saveBuilding(state, action) {
       return { ...state, ...action.payload };
     }
   }

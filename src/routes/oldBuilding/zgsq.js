@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "dva";
 import OldBuilding from "../../components/oldBuilding";
 
 class ZGSQ extends Component {
@@ -6,15 +7,37 @@ class ZGSQ extends Component {
     super();
     this.state = {
       message: "abc",
-      show: false
+      show: true,
+      dfshow: true
     };
   }
+  componentDidMount() {
+    const e = this.props.match.params.id;
+    this.props.dispatch({
+      type: "oldBuilding/getData",
+      payload: e
+    });
+  }
+  handleSubmit = value => {
+    this.props.dispatch({
+      type: "oldBuilding/gzsqTp",
+      payload: value
+    });
+  };
   render() {
+    const a = 1;
     return (
       <div>
-        <OldBuilding message={this.state.message} show={this.state.show} />
+        <OldBuilding
+          message={this.state.message}
+          show={this.state.show}
+          handleSubmit={this.handleSubmit}
+          id={this.props.match.params.id}
+          tag={a}
+          dfshow={this.state.dfshow}
+        />
       </div>
     );
   }
 }
-export default ZGSQ;
+export default connect(({ oldBuilding }) => ({ oldBuilding }))(ZGSQ);
