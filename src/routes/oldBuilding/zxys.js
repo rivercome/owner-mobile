@@ -8,24 +8,24 @@ class ZGSQ extends Component {
     this.state = {
       message: "abc",
       show: true,
-      dfshow: true
+      dfshow: false
     };
   }
   componentDidMount() {
     const e = this.props.match.params.id;
-    this.props.dispatch({
-      type: "oldBuilding/getData",
-      payload: e
-    });
+    // this.props.dispatch({
+    //   type:'oldBuilding/getData',
+    //   payload:e
+    // })
   }
   handleSubmit = value => {
     this.props.dispatch({
-      type: "oldBuilding/gzsqTp",
+      type: "oldBuilding/zxysTp",
       payload: value
     });
   };
   render() {
-    const a = 1;
+    const a = 3;
     return (
       <div>
         <OldBuilding

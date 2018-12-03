@@ -3,24 +3,6 @@ import { Button, List } from "antd-mobile";
 import { createForm } from "rc-form";
 import "./index.css";
 import { connect } from "dva";
-// import { Link } from 'dva/router';
-import axios from "axios";
-
-// @connect (({ ccon }) => ({
-//   ccon,
-// }))
-
-var a, b, c, str;
-// axios({
-//     method: 'get',
-//     url: 'http://154.8.214.49:8080/yzzh/login',
-//     data: {
-//       syzxm: str,
-//       sd: a,
-//       sdy: b,
-//       sh:c
-//     }
-//   });
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -31,46 +13,46 @@ class Second extends Component {
     mytext: "",
     a: ""
   };
-  getData() {
-    //请求数据函数
-    fetch("http://154.8.214.49:8080/wyyz/xxwh/search", {
-      method: "GET",
-      headers: {
-        token: localStorage.token,
-        token_type: "yz"
-      }
-    }).then(res =>
-      res.json().then(data => {
-        console.log(data);
-      })
-    );
-  }
-
-  //     data => {
-  //       console.log(data)
-  //       // this.setState({
-  //       //   //  mytext: data
-  //       //    a:data.sd,
-  //       //    b:data.sdy,
-  //       //    c:data.sh
-  //       //   })
-
-  //     }
-  //   )
+  // getData() {
+  //  this.props.dispatch({
+  //   type:'login/getBuilding',
+  //   payload:""
+  //  })
   // }
 
-  componentDidMount() {
-    this.getData();
-  }
+  // componentDidMount() {
+  //   this.getData();
+  // }
 
   render() {
+    const abv = this.props.login;
+    console.log(abv);
+    let tmp = abv.response === undefined ? {} : abv.response;
+    console.log(tmp);
+    let abc = tmp.data === undefined ? {} : tmp.data;
+    let value =
+      abc.userInfo === undefined
+        ? [
+            {
+              xmid: "",
+              sd: "",
+              sdy: "",
+              sh: ""
+            }
+          ]
+        : abc.userInfo;
+    console.log(value);
     return (
       <div>
         <List renderHeader={() => "  "} className="my-list">
-          <Item arrow="horizontal" multipleLine onClick={() => {}}>
-            {` ${str}小区 `}
-            <Brief>{`${a}栋${b}单元${c}号`}</Brief>
-          </Item>
+          {value.map((item, index) => {
+            return (
+              <Item>
+                {` ${item.xmid}小区 `}
+                <Brief>{`${item.sd}栋${item.sdy}单元${item.sh}号`}</Brief>
+              </Item>
+            );
+          })}
         </List>
       </div>
     );
@@ -78,4 +60,4 @@ class Second extends Component {
 }
 
 const Seconda = createForm()(Second);
-export default Seconda;
+export default connect(({ login }) => ({ login }))(Seconda);

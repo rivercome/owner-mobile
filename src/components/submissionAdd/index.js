@@ -1,18 +1,80 @@
 import React, { Component } from "react";
 import { Button, List, InputItem, TextareaItem } from "antd-mobile";
 import styles from "./index.less";
+import { connect } from "dva";
 import { createForm } from "rc-form";
-require("./photo");
+import "./photo";
 
 class submissionAdd extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+  getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var second = date.getSeconds();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    if (second >= 0 && second <= 9) {
+      second = "0" + second;
+    }
+    var day = date.getMinutes();
+    if (day >= 0 && day <= 9) {
+      day = "0" + day;
+    }
+    var currentdate =
+      date.getFullYear() +
+      seperator1 +
+      month +
+      seperator1 +
+      strDate +
+      " " +
+      date.getHours() +
+      seperator2 +
+      day +
+      seperator2 +
+      second;
+    return currentdate;
+  }
   handleClick = () => {
-    this.props.form.validateFields(value => {
-      console.log(value);
-    });
+    const a = this.props.form.getFieldsValue().message;
+    const b = this.props.form.getFieldsValue().phone;
+    const c = this.props.form.getFieldsValue().count;
+    const time = this.getNowFormatDate();
+    const value = {
+      slxdh: b,
+      sbxsx: a,
+      sbxnr: c,
+      dbxrq: time
+    };
+    const content = {
+      dTsrq: time,
+      sTssx: a,
+      sTsnr: c,
+      slxdh: b
+    };
+    const values = {
+      djyrq: time,
+      sjysx: a,
+      sjynr: c,
+      slxdh: b
+    };
+    const tag = this.props.tag;
+    if (tag === 1) {
+      this.props.handleSubmit(value);
+    } else if (tag === 2) {
+      this.props.handleSubmit(content);
+    } else {
+      this.props.handleSubmit(values);
+    }
   };
 
   render() {
@@ -34,16 +96,6 @@ class submissionAdd extends Component {
               </Button>
             </div>
           </div>
-          {/* <div className={styles.button}>
-            <Button
-              inline
-              size="small"
-              style={{ marginRight: "4px" }}
-              onClick={this.handleClick}
-            >
-              提交
-            </Button>
-          </div> */}
         </div>
         <div className={styles.message}>
           <List>
@@ -51,7 +103,7 @@ class submissionAdd extends Component {
               {...getFieldProps("message")}
               clear
               placeholder="有青蛙"
-              ref={el => (this.autoFocusInst = el)}
+              // ref={el => (this.autoFocusInst = el)}
             >
               报修事项
             </InputItem>
@@ -59,7 +111,7 @@ class submissionAdd extends Component {
               {...getFieldProps("phone")}
               clear
               placeholder="1555120"
-              ref={el => (this.autoFocusInst = el)}
+              // ref={el => (this.autoFocusInst = el)}
             >
               联系电话
             </InputItem>
@@ -73,7 +125,7 @@ class submissionAdd extends Component {
               title="报修内容"
             />
           </List>
-          {/* <div id="camera">
+          <div id="camera">
             <div id="contentHolder">
               <video
                 id="video"
@@ -88,9 +140,9 @@ class submissionAdd extends Component {
               />
             </div>
             <div id="buttons">
-              <button id="btn" className="btn btn_blue">
+              <Button id="btn" className="btn btn_blue">
                 拍照
-              </button>
+              </Button>
               <button
                 id="btn_cancel"
                 className="btn btn_blue"
@@ -106,11 +158,13 @@ class submissionAdd extends Component {
                 上传
               </button>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     );
   }
 }
 const BasicInputExampleWrapper = createForm()(submissionAdd);
-export default BasicInputExampleWrapper;
+export default connect(({ submission }) => ({ submission }))(
+  BasicInputExampleWrapper
+);
