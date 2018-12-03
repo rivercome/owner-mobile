@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
-import { Card } from "antd-mobile";
 
 const phoneInfo = [
   {
@@ -38,27 +37,44 @@ const phoneInfo = [
 ];
 
 export default class Call extends React.Component {
-  state = {};
+  getData() {
+    fetch("http://154.8.214.49:8080/sjd/cydh/all", {
+      method: "GET",
+      headers: {
+        token: localStorage.token,
+        token_type: "yz"
+      }
+    }).then(res =>
+      res.json().then(data => {
+        // console.log(data);
+        this.setState({
+          mydata: data
+        });
+      })
+    );
+  }
+  componentDidMount() {
+    this.getData();
+  }
+  state = {
+    mydata: ""
+  };
   render() {
+    // console.log(this.state.mydata.data);
     return (
       <Fragment>
-        <Card>
-          <Card.Header title={<span className={styles.title}>常用电话</span>} />
-          <Card.Body>
-            <div>
-              <ul>
-                {phoneInfo.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      {`${item.content}` + "  " + `${item.num}`}
-                    </li>
-                  );
-                })}
-                <li />
-              </ul>
-            </div>
-          </Card.Body>
-        </Card>
+        <div className={styles.header}>
+          <p>常用电话</p>
+        </div>
+        <div className={styles.wrapper}>
+          <ul>
+            {phoneInfo.map((item, index) => {
+              return (
+                <li key={index}>{`${item.content}` + "  " + `${item.num}`}</li>
+              );
+            })}
+          </ul>
+        </div>
       </Fragment>
     );
   }

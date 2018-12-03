@@ -36,11 +36,11 @@ const opendata = [
   },
   {
     content: "物业企业信息",
-    url: ""
+    url: "/companyinfo"
   },
   {
     content: "小区信息",
-    url: ""
+    url: "/neighborinfo"
   },
   {
     content: "诚信公示",
@@ -66,15 +66,15 @@ const servicedata = [
   },
   {
     content: "政策法规",
-    url: ""
+    url: "/rules"
   },
   {
     content: "通知公告",
-    url: ""
+    url: "/acounce"
   },
   {
     content: "常用电话",
-    url: ""
+    url: "/call"
   }
 ];
 export default class Home extends React.Component {
@@ -105,7 +105,17 @@ export default class Home extends React.Component {
             <div className={styles.openwrapper}>
               <ul className={styles.opencontent}>
                 {servicedata.map((item, index) => {
-                  return <li key={index}>{item.content}</li>;
+                  // console.log(item.url);
+                  return (
+                    <li
+                      key={index}
+                      onClick={() => {
+                        this.handlePush(`${item.url}`);
+                      }}
+                    >
+                      {item.content}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
@@ -128,7 +138,17 @@ export default class Home extends React.Component {
             <div className={styles.openwrapper}>
               <ul className={styles.opencontent}>
                 {opendata.map((item, index) => {
-                  return <li key={index}>{item.content}</li>;
+                  // console.log(item.url);
+                  return (
+                    <li
+                      key={index}
+                      onClick={() => {
+                        this.handlePush(`${item.url}`);
+                      }}
+                    >
+                      {item.content}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
@@ -186,11 +206,14 @@ export default class Home extends React.Component {
         );
     }
   }
-
+  handlePush = url => {
+    this.context.router.history.push(url);
+  };
   handleBack = () => {
-    this.context.router.history.push("/");
+    this.context.router.history.push("/main");
   };
   render() {
+    console.log(this.state.users);
     return (
       <div>
         <NavBar
