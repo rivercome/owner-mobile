@@ -24,7 +24,6 @@ app.model(require("./models/submission.js").default);
 app.model(require("./models/ts.js").default);
 app.model(require("./models/oldBuilding.js").default);
 app.model(require("./models/jy.js").default);
-
 // 4. Router
 app.router(require("./router").default);
 
