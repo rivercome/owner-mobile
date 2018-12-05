@@ -216,13 +216,13 @@ export default class Home extends React.Component {
     console.log(this.state.users);
     return (
       <div>
-        <NavBar
+        {/* <NavBar
           style={{ backgroundColor: "#eee", color: "black" }}
           leftContent="返回"
           onLeftClick={this.handleBack}
         >
           <span className={styles.navheader}>秦皇岛物业平台</span>
-        </NavBar>
+        </NavBar> */}
 
         <div>
           <TabBar
