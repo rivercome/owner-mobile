@@ -6,7 +6,6 @@ import submission from "./routes/submission/index";
 import Vote from "./routes/Todo/Vote";
 import Home from "./routes/home";
 import qualityEvaluation from "./routes/Todo/qualityEvaluation";
-import ListInform from "./components/List/list";
 import Layout from "./components/Layout";
 import abc from "./components/oldBuilding";
 import zgsq from "./routes/oldBuilding/zgsq";
@@ -36,6 +35,8 @@ import zxpj from "./routes/oldBuilding/zxpj";
 import Message from "./routes/yeweihui/Message";
 import Record from "./routes/yeweihui/Record";
 import Details from "./routes/yeweihui/Details";
+import Messagetwo from "./components/message/message";
+import MessageContent from "./components/message/messageContent";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -47,7 +48,6 @@ const RouterConfig = ({ history }) => {
 
           <Route path="/login" component={Login} />
           <Route path="/home" component={Home} />
-          <Route path="/list" component={ListInform} />
           <Route path="/submissionList" component={submission} />
           <Route path="/vote/:id" component={Vote} />
           <Route path="/qualityEvaluation/:id" component={qualityEvaluation} />
@@ -78,6 +78,8 @@ const RouterConfig = ({ history }) => {
           <Route path="/aha" component={Message} />
           <Route path="/ahb" component={Record} />
           <Route path="/ahc" component={Details} />
+          <Route path="/message" component={Messagetwo} />
+          <Route path="/messageCon" component={MessageContent} />
           <Route />
         </Switch>
       </Layout>
