@@ -163,14 +163,3 @@ export async function jianYiCx(params) {
     method: "DELETE"
   });
 }
-// export async function fakeAccountLogin(params) {
-//   console.log('params', params);
-//   return request(`${API_PREFIX}/user/login`, {
-//     method: 'POST',
-//     body: {
-//       login_name: params.userName,
-//       password: params.password,
-//       login_type: 'qy',
-//     },
-//   });
-// }

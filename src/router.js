@@ -1,6 +1,5 @@
 import React from "react";
 import { Router, Route, Switch } from "dva/router";
-import IndexPage from "./routes/IndexPage";
 import Login from "./routes/Login/index";
 import submission from "./routes/submission/index";
 import Vote from "./routes/Todo/Vote";
@@ -16,7 +15,6 @@ import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
 import Anouce from "./components/anousement";
 import CompanyInfo from "./components/companyinfo";
-import Main from "./components/maindemo";
 import Anoucecontent from "./components/anoucecontent";
 import NeigoborInfo from "./components/neighborinfo";
 import Rules from "./components/rules";
@@ -41,12 +39,8 @@ const RouterConfig = ({ history }) => {
     <Router history={history}>
       <Layout>
         <Switch>
-          <Route path="/" exact component={IndexPage} />
-
-          <Route path="/main" component={Main} />
-
+          <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/home" component={Home} />
           <Route path="/list" component={ListInform} />
           <Route path="/submissionList" component={submission} />
           <Route path="/vote/:id" component={Vote} />
