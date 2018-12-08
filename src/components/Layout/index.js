@@ -12,11 +12,11 @@ const Header = props => (
             inline
             size="small"
             style={{ marginTop: "10px" }}
-            onClick={() => {
-              window.location.href = "/";
-            }}
+            // onClick={() => {
+            //   window.location.href = "/";
+            // }}
           >
-            返回
+            <Link to="/"> 返回</Link>
           </Button>
         </div>
       </li>

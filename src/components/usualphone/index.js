@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
+import { connect } from "dva";
 
 const phoneInfo = [
   {
@@ -36,7 +37,7 @@ const phoneInfo = [
   }
 ];
 
-export default class Call extends React.Component {
+class Call extends React.Component {
   getData() {
     fetch("http://154.8.214.49:8080/sjd/cydh/all", {
       method: "GET",
@@ -60,7 +61,7 @@ export default class Call extends React.Component {
     mydata: ""
   };
   render() {
-    // console.log(this.state.mydata.data);
+    console.log(this.state.mydata.data);
     return (
       <Fragment>
         <div className={styles.header}>
@@ -79,3 +80,8 @@ export default class Call extends React.Component {
     );
   }
 }
+export default connect(({ call }) => {
+  {
+    call;
+  }
+})(Call);

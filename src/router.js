@@ -34,6 +34,11 @@ import zxpj from "./routes/oldBuilding/zxpj";
 import Message from "./routes/yeweihui/Message";
 import Record from "./routes/yeweihui/Record";
 import Details from "./routes/yeweihui/Details";
+import Contact from "./components/contactperform";
+import Commonfare from "./components/commonfare";
+import Repairfare from "./components/repairfare";
+import Entrust from "./components/entrust";
+
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -43,6 +48,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/login" component={Login} />
           <Route path="/list" component={ListInform} />
           <Route path="/submissionList" component={submission} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/commonfare" component={Commonfare} />
+          <Route path="/repairfare" component={Repairfare} />
+          <Route path="/entrust" component={Entrust} />
           <Route path="/vote/:id" component={Vote} />
           <Route path="/qualityEvaluation/:id" component={qualityEvaluation} />
           <Route path="/d" component={abc} />

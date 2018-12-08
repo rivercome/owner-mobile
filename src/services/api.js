@@ -163,3 +163,8 @@ export async function jianYiCx(params) {
     method: "DELETE"
   });
 }
+export async function usualCall(params) {
+  return request(`${basePath}/sjd/cydh/all`, {
+    method: "GET"
+  });
+}

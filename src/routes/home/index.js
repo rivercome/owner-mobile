@@ -2,30 +2,31 @@ import React, { Fragment } from "react";
 import styles from "./index.less";
 import { Carousel, Card, WingBlank, WhiteSpace, Button } from "antd-mobile";
 import PropTypes from "prop-types";
+
 const opendata = [
   {
     content: "物业合同履行情况",
-    url: ""
+    url: "/contact"
   },
   {
     content: "公共费用分摊公示",
-    url: ""
+    url: "/commonfare"
   },
   {
     content: "委托经营情况公示",
-    url: ""
+    url: "/entrust"
   },
   {
     content: "公共维修基金使用",
-    url: ""
+    url: "/repairfare"
   },
   {
     content: "业委会信息",
-    url: ""
+    url: "/aha"
   },
   {
     content: "业委会工作记录",
-    url: ""
+    url: "/ahb"
   },
   {
     content: "物业企业信息",
@@ -43,19 +44,19 @@ const opendata = [
 const servicedata = [
   {
     content: "业主报修",
-    url: ""
+    url: "/submissionList"
   },
   {
     content: "业主建议",
-    url: ""
+    url: "/jianYiList"
   },
   {
     content: "业主投诉",
-    url: ""
+    url: "/tousuList"
   },
   {
     content: "代办事宜",
-    url: ""
+    url: "/dbsy"
   },
   {
     content: "政策法规",
@@ -127,6 +128,12 @@ export default class Home extends React.Component {
 }
 
 class HomeService extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
+  handlePush = url => {
+    this.context.router.history.push(url);
+  };
   render() {
     return (
       <div
@@ -163,6 +170,12 @@ class HomeService extends React.Component {
   }
 }
 class HomeOpen extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
+  handlePush = url => {
+    this.context.router.history.push(url);
+  };
   render() {
     return (
       <div
@@ -180,7 +193,6 @@ class HomeOpen extends React.Component {
         <div className={styles.openwrapper}>
           <ul className={styles.opencontent}>
             {opendata.map((item, index) => {
-              // console.log(item.url);
               return (
                 <li
                   key={index}
