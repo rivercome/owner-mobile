@@ -5,7 +5,6 @@ import submission from "./routes/submission/index";
 import Vote from "./routes/Todo/Vote";
 import Home from "./routes/home";
 import qualityEvaluation from "./routes/Todo/qualityEvaluation";
-import ListInform from "./components/List/list";
 import Layout from "./components/Layout";
 import abc from "./components/oldBuilding";
 import zgsq from "./routes/oldBuilding/zgsq";
@@ -39,6 +38,8 @@ import Commonfare from "./components/commonfare";
 import Repairfare from "./components/repairfare";
 import Entrust from "./components/entrust";
 
+import Messagetwo from "./components/message/message";
+import MessageContent from "./components/message/messageContent";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -46,7 +47,7 @@ const RouterConfig = ({ history }) => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/list" component={ListInform} />
+          {/* <Route path="/list" component={ListInform} /> */}
           <Route path="/submissionList" component={submission} />
           <Route path="/contact" component={Contact} />
           <Route path="/commonfare" component={Commonfare} />
@@ -81,6 +82,8 @@ const RouterConfig = ({ history }) => {
           <Route path="/aha" component={Message} />
           <Route path="/ahb" component={Record} />
           <Route path="/ahc" component={Details} />
+          <Route path="/message" component={Messagetwo} />
+          <Route path="/messageCon" component={MessageContent} />
           <Route />
         </Switch>
       </Layout>

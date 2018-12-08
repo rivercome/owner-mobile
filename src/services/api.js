@@ -163,8 +163,9 @@ export async function jianYiCx(params) {
     method: "DELETE"
   });
 }
-export async function usualCall(params) {
-  return request(`${basePath}/sjd/cydh/all`, {
+
+export async function getListMessage(params) {
+  return request(`${basePath}/sjd/yzxgxx/xqxx`, {
     method: "GET"
   });
 }
