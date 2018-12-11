@@ -20,9 +20,7 @@ class Anoucecontent extends React.Component {
     return (
       <Fragment>
         <div className={styles.header}>
-          <p className={styles.title}>{`关于${
-            value ? value.sbt : ""
-          }的通知`}</p>
+          <p className={styles.title}>{value ? value.sbt : ""}</p>
           <p className={styles.date}>2018年10月1日</p>
         </div>
         <div className={styles.content}>
