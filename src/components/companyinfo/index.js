@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
+import { connect } from "dva";
 const dataSource = [
   {
     name: "企业名称: ",
@@ -38,30 +39,10 @@ const dataSource = [
     content: "***"
   }
 ];
+// getdata = () =>{
 
+// }
 export default class CompanyInfo extends React.Component {
-  getData() {
-    fetch("http://154.8.214.49:8080/wyqygl/jbxxwh/qyshow/1", {
-      method: "GET",
-      headers: {
-        token: localStorage.token,
-        token_type: "yz"
-      }
-    }).then(res =>
-      res.json().then(data => {
-        // console.log(data);
-        this.setState({
-          mydata: data
-        });
-      })
-    );
-  }
-  componentDidMount() {
-    this.getData();
-  }
-  state = {
-    mydata: ""
-  };
   render() {
     return (
       <Fragment>

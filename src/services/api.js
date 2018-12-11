@@ -169,3 +169,38 @@ export async function getListMessage(params) {
     method: "GET"
   });
 }
+export async function getCall() {
+  return request(`${basePath}/sjd/cydh/all`, {
+    method: "GET"
+  });
+}
+export async function getAnouce() {
+  return request(`${basePath}/sjd/tzgg/search`, {
+    method: "GET"
+  });
+}
+export async function getAnouceContent(params) {
+  return request(`${basePath}/sjd/tzgg/one/${params}`, {
+    method: "GET"
+  });
+}
+export async function getNeighInfo() {
+  return request(`${basePath}/sjd/yzxgxx/xqxx`, {
+    method: "GET"
+  });
+}
+export async function getYWHInfo() {
+  return request(`${basePath}/sjd/yzxgxx/ywhxx`, {
+    method: "GET"
+  });
+}
+export async function getRules() {
+  return request(`${basePath}/sjd/zcfg/search`, {
+    method: "GET"
+  });
+}
+export async function getRulesContent(params) {
+  return request(`${basePath}/sjd/zcfg/one/${params}`, {
+    method: "GET"
+  });
+}

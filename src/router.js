@@ -1,6 +1,5 @@
 import React from "react";
 import { Router, Route, Switch } from "dva/router";
-import IndexPage from "./routes/IndexPage";
 import Login from "./routes/Login/index";
 import submission from "./routes/submission/index";
 import Vote from "./routes/Todo/Vote";
@@ -15,7 +14,6 @@ import loginFirst from "./routes/LoginFirst";
 import Second from "./routes/Second";
 import Anouce from "./components/anousement";
 import CompanyInfo from "./components/companyinfo";
-import Main from "./components/maindemo";
 import Anoucecontent from "./components/anoucecontent";
 import NeigoborInfo from "./components/neighborinfo";
 import Rules from "./components/rules";
@@ -35,6 +33,11 @@ import zxpj from "./routes/oldBuilding/zxpj";
 import Message from "./routes/yeweihui/Message";
 import Record from "./routes/yeweihui/Record";
 import Details from "./routes/yeweihui/Details";
+import Contact from "./components/contactperform";
+import Commonfare from "./components/commonfare";
+import Repairfare from "./components/repairfare";
+import Entrust from "./components/entrust";
+
 import Messagetwo from "./components/message/message";
 import MessageContent from "./components/message/messageContent";
 const RouterConfig = ({ history }) => {
@@ -42,13 +45,13 @@ const RouterConfig = ({ history }) => {
     <Router history={history}>
       <Layout>
         <Switch>
-          <Route path="/" exact component={IndexPage} />
-
-          <Route path="/main" component={Main} />
-
+          <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/home" component={Home} />
           <Route path="/submissionList" component={submission} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/commonfare" component={Commonfare} />
+          <Route path="/repairfare" component={Repairfare} />
+          <Route path="/entrust" component={Entrust} />
           <Route path="/vote/:id" component={Vote} />
           <Route path="/qualityEvaluation/:id" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
@@ -59,10 +62,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/second" component={Second} />
           <Route path="/companyinfo" component={CompanyInfo} />
           <Route path="/anouce" component={Anouce} />
-          <Route path="/anoucecontent" component={Anoucecontent} />
+          <Route path="/anoucecontent/:id" component={Anoucecontent} />
           <Route path="/neighborinfo" component={NeigoborInfo} />
           <Route path="/rules" component={Rules} />
-          <Route path="/rulescontent" component={Rulescontent} />
+          <Route path="/rulescontent/:id" component={Rulescontent} />
           <Route path="/addSubmission" component={addSubmission} />
           <Route path="/bxDetail/:id" component={bxDetail} />
           <Route path="/tousuList" component={tousu} />

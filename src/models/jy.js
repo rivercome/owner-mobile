@@ -20,14 +20,6 @@ export default {
     //   *fetch({ payload }, { call, put }) {  // eslint-disable-line
     //     yield put({ type: 'save' });
     //   },
-    *getJyList({ payload }, { call, put }) {
-      const response = yield call(getJyList, payload);
-      console.log(response);
-      yield put({
-        type: "saveList",
-        payload: response
-      });
-    },
     *handleSubmit({ payload }, { call }) {
       console.log(payload);
       const response = yield call(handleJySubmit, payload);
@@ -61,6 +53,14 @@ export default {
       if (response.code === 1000) {
         message.success("撤回成功");
       }
+    },
+    *getJyList({ payload }, { call, put }) {
+      const response = yield call(getJyList, payload);
+      console.log(response);
+      yield put({
+        type: "saveList",
+        payload: response
+      });
     }
   },
 

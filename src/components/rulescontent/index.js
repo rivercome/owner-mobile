@@ -1,12 +1,27 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
+import { connect } from "dva";
 
-export default class Rulescontent extends React.Component {
+class Rulescontent extends React.Component {
+  getdata = () => {
+    const { dispatch } = this.props;
+    const id = this.props.match.params.id;
+    dispatch({
+      type: "zcfg/getRulesContent",
+      payload: id
+    });
+  };
+  componentDidMount() {
+    this.getdata();
+  }
   render() {
+    // console.log(this.props.zcfg.value)
+    console.log(this.props.zcfg.value);
+    const value = this.props.zcfg.value ? this.props.zcfg.value.data : "";
     return (
       <Fragment>
         <div className={styles.header}>
-          <p className={styles.title}>关于********的法规</p>
+          <p className={styles.title}>{value && value.sbt}</p>
           <p className={styles.date}>2018年10月1日</p>
         </div>
         <div className={styles.content}>
@@ -24,3 +39,4 @@ export default class Rulescontent extends React.Component {
     );
   }
 }
+export default connect(zcfg => zcfg)(Rulescontent);

@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "antd-mobile";
+import { Link } from "react-router-dom";
 import styles from "./index.less";
 
 const Header = props => (
@@ -7,15 +8,22 @@ const Header = props => (
     <ul className={styles.nav}>
       <li>
         <div style={{ marginLeft: "-20px" }}>
-          <Button inline size="small">
-            返回
+          <Button
+            inline
+            size="small"
+            style={{ marginTop: "10px" }}
+            // onClick={() => {
+            //   window.location.href = "/";
+            // }}
+          >
+            <Link to="/"> 返回</Link>
           </Button>
         </div>
       </li>
       <li>
-        <span style={{ fontSize: "18px" }}>秦皇岛物业管理平台</span>
+        <span className={styles.title1}>秦皇岛物业管理平台</span>
       </li>
-      <li>
+      <li className={styles.left}>
         <Button inline size="small">
           首页
         </Button>

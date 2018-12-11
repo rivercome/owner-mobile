@@ -21,30 +21,6 @@ const codeMessage = {
   504: "网关超时。",
   1011: "该token不存在"
 };
-// function checkStatus(response) {
-//   if (response.status >= 200 && response.status < 300) {
-//     return response;
-//   }
-//   const errortext = codeMessage[response.status] || response.statusText;
-//   notification.error({
-//     message: `请求错误 ${response.status}: ${response.url}`,
-//     description: errortext
-//   });
-//   const error = new Error(errortext);
-//   error.name = response.status;
-//   error.response = response;
-//   throw error;
-// }
-
-// function checkCode(response) {
-//   if (response.code === 1011) {
-//     const err = new Error();
-//     err.name = 401;
-//     throw err;
-//   }
-//   return response;
-// }
-
 /**
  * Requests a URL, returning a promise.
  *
@@ -84,7 +60,7 @@ export default function request(url, options, tag) {
       // newOptions.body is FormData
       newOptions.headers = {
         Accept: "application/json",
-        // token: localStorage.tokenqy,
+        // token: localStorage.tokenqy,-
         token: localStorage.token,
         token_type: "yz",
         ...newOptions.headers
