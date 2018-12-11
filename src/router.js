@@ -47,7 +47,6 @@ const RouterConfig = ({ history }) => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
-          {/* <Route path="/list" component={ListInform} /> */}
           <Route path="/submissionList" component={submission} />
           <Route path="/contact" component={Contact} />
           <Route path="/commonfare" component={Commonfare} />
@@ -63,10 +62,10 @@ const RouterConfig = ({ history }) => {
           <Route path="/second" component={Second} />
           <Route path="/companyinfo" component={CompanyInfo} />
           <Route path="/anouce" component={Anouce} />
-          <Route path="/anoucecontent" component={Anoucecontent} />
+          <Route path="/anoucecontent/:id" component={Anoucecontent} />
           <Route path="/neighborinfo" component={NeigoborInfo} />
           <Route path="/rules" component={Rules} />
-          <Route path="/rulescontent" component={Rulescontent} />
+          <Route path="/rulescontent/:id" component={Rulescontent} />
           <Route path="/addSubmission" component={addSubmission} />
           <Route path="/bxDetail/:id" component={bxDetail} />
           <Route path="/tousuList" component={tousu} />

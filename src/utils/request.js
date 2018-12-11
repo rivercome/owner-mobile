@@ -60,7 +60,7 @@ export default function request(url, options, tag) {
       // newOptions.body is FormData
       newOptions.headers = {
         Accept: "application/json",
-        // token: localStorage.tokenqy,
+        // token: localStorage.tokenqy,-
         token: localStorage.token,
         token_type: "yz",
         ...newOptions.headers

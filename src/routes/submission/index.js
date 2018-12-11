@@ -20,6 +20,7 @@ class Submission extends Component {
     this.getData();
   }
   render() {
+    console.log(this.props.submission);
     const value = this.props.submission.list;
     console.log(value);
     let content = value === undefined ? [] : value.data;

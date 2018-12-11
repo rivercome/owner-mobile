@@ -3,33 +3,27 @@ import styles from "./index.less";
 import { Select } from "antd";
 import { Card, SearchBar, Button, WhiteSpace, WingBlank } from "antd-mobile";
 import { List } from "antd";
-
+import { connect } from "dva";
+import PropTypes from "prop-types";
 const Option = Select.Option;
 
 const data = [{}, {}];
 
-export default class Anouce extends React.Component {
+class Anouce extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
   state = {
     value: "",
     mydata: ""
   };
 
-  getData() {
-    fetch("http://154.8.214.49:8080/sjd/tzgg/search", {
-      method: "GET",
-      headers: {
-        token: localStorage.token,
-        token_type: "yz"
-      }
-    }).then(res =>
-      res.json().then(data => {
-        // console.log(data);
-        this.setState({
-          mydata: data
-        });
-      })
-    );
-  }
+  getData = () => {
+    this.props.dispatch({
+      type: "tongzhi/getAnouce",
+      payload: ""
+    });
+  };
   componentWillMount() {
     this.getData();
   }
@@ -48,7 +42,7 @@ export default class Anouce extends React.Component {
   };
 
   render() {
-    console.log(this.state.mydata.data);
+    const value = this.props.tongzhi.list ? this.props.tongzhi.list.data : "";
     return (
       <Fragment>
         <div className={styles.wrapper}>
@@ -75,8 +69,8 @@ export default class Anouce extends React.Component {
         <div className={styles.content}>
           <p>通知公告</p>
           <ul>
-            {this.state.mydata.data
-              ? this.state.mydata.data.map((item, index) => {
+            {value
+              ? value.map((item, index) => {
                   return (
                     <li key={index}>
                       <div className={styles.top}>
@@ -84,8 +78,17 @@ export default class Anouce extends React.Component {
                         <p className={styles.date}>{item.dfbsj}</p>
                       </div>
                       <div className={styles.bottom}>
-                        <p className={styles.comp}>发布单位: {item.sfbr}`</p>
-                        <p className={styles.see}>查看</p>
+                        <p className={styles.comp}>发布单位: {item.sfbr}</p>
+                        <p
+                          className={styles.see}
+                          onClick={() => {
+                            this.context.router.history.push(
+                              `/anoucecontent/${item.id}`
+                            );
+                          }}
+                        >
+                          查看
+                        </p>
                       </div>
                     </li>
                   );
@@ -97,3 +100,4 @@ export default class Anouce extends React.Component {
     );
   }
 }
+export default connect(({ tongzhi }) => ({ tongzhi }))(Anouce);

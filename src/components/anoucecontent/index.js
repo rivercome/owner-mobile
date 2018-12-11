@@ -1,34 +1,28 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
-
-export default class Anoucecontent extends React.Component {
-  getData() {
-    fetch(" http://154.8.214.49:8080/sjd/tzgg/one/10000000002338", {
-      method: "GET",
-      headers: {
-        token: localStorage.token,
-        token_type: "yz"
-      }
-    }).then(res =>
-      res.json().then(data => {
-        console.log(data);
-        this.setState({
-          mydata: data
-        });
-      })
-    );
-  }
-  componentDidMount() {
-    this.getData();
-  }
-  state = {
-    mydata: ""
+import { connect } from "dva";
+class Anoucecontent extends React.Component {
+  getdata = () => {
+    const { dispatch } = this.props;
+    const id = this.props.match.params.id;
+    dispatch({
+      type: "tongzhi/getAnouceContent",
+      payload: id
+    });
   };
+  componentDidMount() {
+    this.getdata();
+  }
   render() {
+    //  console.log(this.props.tongzhi.value)
+    // console.log(this.props.match.params.id);
+    const value = this.props.tongzhi.value ? this.props.tongzhi.value.data : "";
     return (
       <Fragment>
         <div className={styles.header}>
-          <p className={styles.title}>关于********的通知</p>
+          <p className={styles.title}>{`关于${
+            value ? value.sbt : ""
+          }的通知`}</p>
           <p className={styles.date}>2018年10月1日</p>
         </div>
         <div className={styles.content}>
@@ -46,3 +40,4 @@ export default class Anoucecontent extends React.Component {
     );
   }
 }
+export default connect(({ tongzhi }) => ({ tongzhi }))(Anoucecontent);

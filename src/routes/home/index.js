@@ -64,7 +64,7 @@ const servicedata = [
   },
   {
     content: "通知公告",
-    url: "/acounce"
+    url: "/anouce"
   },
   {
     content: "常用电话",

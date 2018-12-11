@@ -32,9 +32,9 @@
 ``` 
 - I-首页 //完成静态页面 /main 为路由
 - J-常用电话 //完成静态页面 /call  完成数据请求.
-- J-通知公告 //完成静态页面 /acounce  完成数据请求
-- J-物业企业信息 //静态页面完成  /companyinfo   完成数据请求,需要id值
-- J-通知公告内容页 //静态页面完成  /anoucecontent  完成了数据请求
+- J-通知公告 //完成静态页面 /anounce  完成数据请求
+- J-物业企业信息 //静态页面完成  /companyinfo   ?
+- J-通知公告内容页 //静态页面完成  /anoucecontent/:id  完成了数据请求
 - J-小区信息 //静态页面完成  /neighborinfo  完成了
 - J-政策规范 // /rules  完成了
 - J-政策规范内容页 /rulescontent  需要一个id值
