@@ -1,6 +1,4 @@
 import { getCall } from "../services/api";
-import { push } from "react-router-redux";
-import { routerRedux } from "dva/router";
 
 export default {
   namespace: "usualcall",
@@ -10,6 +8,7 @@ export default {
   effects: {
     *getCall({ payload }, { call, put }) {
       const response = yield call(getCall, payload);
+      console.log(response);
       yield put({
         type: "saveList",
         payload: response

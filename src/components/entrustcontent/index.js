@@ -1,18 +1,18 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
 
-export default class Contactcontent extends React.Component {
+export default class EntrustContent extends React.Component {
   render() {
     return (
       <Fragment>
-        <p className={styles.header}>合同履行情况</p>
+        <p className={styles.header}>委托经营收支情况公示</p>
         <div className={styles.content}>
           <ul>
             <li>公示标题: </li>
-            <li>合同名称: </li>
             <li>公示日期: </li>
             <li>周期(起): </li>
             <li>周期(止): </li>
+            <li>备注: </li>
           </ul>
           <p className={styles.contentheader}>公示内容: </p>
           <div className={styles.content1} />

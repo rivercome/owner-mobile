@@ -204,3 +204,43 @@ export async function getRulesContent(params) {
     method: "GET"
   });
 }
+export async function getContact() {
+  return request(`${basePath}/sjd/htlxqk/search`, {
+    method: "GET"
+  });
+}
+export async function getContactContent(params) {
+  return request(`${basePath}/sjd/htlxqk/detail`, {
+    method: "GET"
+  });
+}
+export async function getCommonfare() {
+  return request(`${basePath}/sjd/ggfyft/search`, {
+    method: "GET"
+  });
+}
+export async function getCommonfareContent(params) {
+  return request(`${basePath}/sjd/ggfyft/detail`, {
+    method: "GET"
+  });
+}
+export async function getEntrust() {
+  return request(`${basePath}/sjd/wtjysz/search`, {
+    method: "GET"
+  });
+}
+export async function getEntrustContent(params) {
+  return request(`${basePath}/sjd/wtjysz/detail`, {
+    method: "GET"
+  });
+}
+export async function getRepairefare() {
+  return request(`${basePath}/sjd/wxzjsy/search`, {
+    method: "GET"
+  });
+}
+export async function getRepairefareContent(params) {
+  return request(`${basePath}/sjd/wxzjsy/detail`, {
+    method: "GET"
+  });
+}

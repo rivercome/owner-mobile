@@ -9,7 +9,7 @@ const Option = Select.Option;
 
 const data = [{}, {}];
 
-class Commonfare extends React.Component {
+class Contact extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
@@ -20,7 +20,7 @@ class Commonfare extends React.Component {
 
   getData = () => {
     this.props.dispatch({
-      type: "ggfy/getCommonfare",
+      type: "htlx/getContact",
       payload: ""
     });
   };
@@ -43,7 +43,7 @@ class Commonfare extends React.Component {
 
   render() {
     // const value = this.props.tongzhi.list ? this.props.tongzhi.list.data : "";
-    //  console.log(this.props.ggfy.list);
+    console.log(this.props.htlx.list);
     const value = "";
     return (
       <Fragment>
@@ -69,7 +69,7 @@ class Commonfare extends React.Component {
           />
         </div>
         <div className={styles.content}>
-          <p>公共水电费用分摊情况公示</p>
+          <p>合同履行情况公示</p>
           <ul>
             {value
               ? value.map((item, index) => {
@@ -102,4 +102,4 @@ class Commonfare extends React.Component {
     );
   }
 }
-export default connect(({ ggfy }) => ({ ggfy }))(Commonfare);
+export default connect(({ htlx }) => ({ htlx }))(Contact);
