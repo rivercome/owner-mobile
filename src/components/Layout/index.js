@@ -21,7 +21,6 @@ const Header = props => (
             }}
           >
             返回
-            {/* <Link to="/"> </Link> */}
           </Button>
         </div>
       </li>
@@ -30,7 +29,7 @@ const Header = props => (
       </li>
       <li className={styles.left}>
         <Button inline size="small">
-          首页
+          <Link to="/">首页</Link>
         </Button>
       </li>
     </ul>
