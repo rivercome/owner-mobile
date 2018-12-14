@@ -17,7 +17,6 @@ class NeigoborInfo extends React.Component {
     this.getData();
   }
   render() {
-    // console.log(this.props.xqxx.list);
     let data = this.props.xqxx.list ? this.props.xqxx.list.data : "";
     return (
       <Fragment>
