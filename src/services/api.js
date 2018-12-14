@@ -210,7 +210,7 @@ export async function getContact() {
   });
 }
 export async function getContactContent(params) {
-  return request(`${basePath}/sjd/htlxqk/detail`, {
+  return request(`${basePath}/sjd/htlxqk/detail?&${params}`, {
     method: "GET"
   });
 }
@@ -220,7 +220,7 @@ export async function getCommonfare() {
   });
 }
 export async function getCommonfareContent(params) {
-  return request(`${basePath}/sjd/ggfyft/detail`, {
+  return request(`${basePath}/sjd/ggfyft/detail?&${params}`, {
     method: "GET"
   });
 }
@@ -230,7 +230,7 @@ export async function getEntrust() {
   });
 }
 export async function getEntrustContent(params) {
-  return request(`${basePath}/sjd/wtjysz/detail`, {
+  return request(`${basePath}/sjd/wtjysz/detail?&${params}`, {
     method: "GET"
   });
 }
@@ -240,7 +240,12 @@ export async function getRepairefare() {
   });
 }
 export async function getRepairefareContent(params) {
-  return request(`${basePath}/sjd/wxzjsy/detail`, {
+  return request(`${basePath}/sjd/wxzjsy/detail?&${params}`, {
+    method: "GET"
+  });
+}
+export async function getCompanyInfo() {
+  return request(`${basePath}/sjd/yzxgxx/qyxx`, {
     method: "GET"
   });
 }

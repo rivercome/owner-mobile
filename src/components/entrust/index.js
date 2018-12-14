@@ -42,9 +42,10 @@ class Entrust extends React.Component {
   };
 
   render() {
-    // const value = this.props.tongzhi.list ? this.props.tongzhi.list.data : "";
-    console.log(this.props.wtjy.list);
-    const value = "";
+    const value = this.props.wtjy.list ? this.props.wtjy.list.data : "";
+    console.log(value);
+    // console.log(this.props.wtjy.list);
+    // const value = "";
     return (
       <Fragment>
         <div className={styles.wrapper}>
@@ -71,31 +72,30 @@ class Entrust extends React.Component {
         <div className={styles.content}>
           <p>委托经营收支情况公示</p>
           <ul>
-            {value
-              ? value.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <div className={styles.top}>
-                        <p className={styles.title}>{item.sbt}</p>
-                        <p className={styles.date}>{item.dfbsj}</p>
-                      </div>
-                      <div className={styles.bottom}>
-                        <p className={styles.comp}>发布单位: {item.sfbr}</p>
-                        <p
-                          className={styles.see}
-                          onClick={() => {
-                            this.context.router.history.push(
-                              `/contactcontent/${item.id}`
-                            );
-                          }}
-                        >
-                          查看
-                        </p>
-                      </div>
-                    </li>
-                  );
-                })
-              : ""}
+            {value &&
+              value.data.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <div className={styles.top}>
+                      <p className={styles.title}>{item.sgsbt}</p>
+                      <p className={styles.date}>{item.dgsrq}</p>
+                    </div>
+                    <div className={styles.bottom}>
+                      <p className={styles.comp}>发布单位: {item.sqymc}</p>
+                      <p
+                        className={styles.see}
+                        onClick={() => {
+                          this.context.router.history.push(
+                            `/entrustcontent/${item.id}`
+                          );
+                        }}
+                      >
+                        查看
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </Fragment>

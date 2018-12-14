@@ -42,9 +42,8 @@ class Repairfare extends React.Component {
   };
 
   render() {
-    // const value = this.props.tongzhi.list ? this.props.tongzhi.list.data : "";
-    console.log(this.props.wxzj.list);
-    const value = "";
+    const value = this.props.wxzj.list ? this.props.wxzj.list.data : "";
+    console.log(value);
     return (
       <Fragment>
         <div className={styles.wrapper}>
@@ -71,31 +70,30 @@ class Repairfare extends React.Component {
         <div className={styles.content}>
           <p>维修资金使用情况公示</p>
           <ul>
-            {value
-              ? value.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <div className={styles.top}>
-                        <p className={styles.title}>{item.sbt}</p>
-                        <p className={styles.date}>{item.dfbsj}</p>
-                      </div>
-                      <div className={styles.bottom}>
-                        <p className={styles.comp}>发布单位: {item.sfbr}</p>
-                        <p
-                          className={styles.see}
-                          onClick={() => {
-                            this.context.router.history.push(
-                              `/contactcontent/${item.id}`
-                            );
-                          }}
-                        >
-                          查看
-                        </p>
-                      </div>
-                    </li>
-                  );
-                })
-              : ""}
+            {value &&
+              value.data.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <div className={styles.top}>
+                      <p className={styles.title}>{item.swxxm}</p>
+                      <p className={styles.date}>{item.dgsrq}</p>
+                    </div>
+                    <div className={styles.bottom}>
+                      <p className={styles.comp}>发布单位: {item.sqymc}</p>
+                      <p
+                        className={styles.see}
+                        onClick={() => {
+                          this.context.router.history.push(
+                            `/contactcontent/${item.id}`
+                          );
+                        }}
+                      >
+                        查看
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </Fragment>

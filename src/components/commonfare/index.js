@@ -42,9 +42,10 @@ class Commonfare extends React.Component {
   };
 
   render() {
-    // const value = this.props.tongzhi.list ? this.props.tongzhi.list.data : "";
+    const value = this.props.ggfy.list ? this.props.ggfy.list.data : "";
+    console.log(value);
     //  console.log(this.props.ggfy.list);
-    const value = "";
+    // const value = "";
     return (
       <Fragment>
         <div className={styles.wrapper}>
@@ -71,31 +72,30 @@ class Commonfare extends React.Component {
         <div className={styles.content}>
           <p>公共水电费用分摊情况公示</p>
           <ul>
-            {value
-              ? value.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <div className={styles.top}>
-                        <p className={styles.title}>{item.sbt}</p>
-                        <p className={styles.date}>{item.dfbsj}</p>
-                      </div>
-                      <div className={styles.bottom}>
-                        <p className={styles.comp}>发布单位: {item.sfbr}</p>
-                        <p
-                          className={styles.see}
-                          onClick={() => {
-                            this.context.router.history.push(
-                              `/contactcontent/${item.id}`
-                            );
-                          }}
-                        >
-                          查看
-                        </p>
-                      </div>
-                    </li>
-                  );
-                })
-              : ""}
+            {value &&
+              value.data.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <div className={styles.top}>
+                      <p className={styles.title}>{item.sgsbt}</p>
+                      <p className={styles.date}>{item.dgsrq}</p>
+                    </div>
+                    <div className={styles.bottom}>
+                      <p className={styles.comp}>发布单位: {item.sqymc}</p>
+                      <p
+                        className={styles.see}
+                        onClick={() => {
+                          this.context.router.history.push(
+                            `/commonfarecontent/${item.id}`
+                          );
+                        }}
+                      >
+                        查看
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </Fragment>

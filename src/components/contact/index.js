@@ -42,8 +42,8 @@ class Contact extends React.Component {
   };
 
   render() {
-    // const value = this.props.tongzhi.list ? this.props.tongzhi.list.data : "";
-    console.log(this.props.htlx.list);
+    const value1 = this.props.htlx.list ? this.props.htlx.list.data : "";
+    console.log(value1);
     const value = "";
     return (
       <Fragment>
@@ -71,16 +71,16 @@ class Contact extends React.Component {
         <div className={styles.content}>
           <p>合同履行情况公示</p>
           <ul>
-            {value
-              ? value.map((item, index) => {
+            {value1
+              ? value1.data.map((item, index) => {
                   return (
                     <li key={index}>
                       <div className={styles.top}>
-                        <p className={styles.title}>{item.sbt}</p>
-                        <p className={styles.date}>{item.dfbsj}</p>
+                        <p className={styles.title}>{item.tgsbt}</p>
+                        <p className={styles.date}>{item.dgsrq}</p>
                       </div>
                       <div className={styles.bottom}>
-                        <p className={styles.comp}>发布单位: {item.sfbr}</p>
+                        <p className={styles.comp}>发布单位: {item.sqymc}</p>
                         <p
                           className={styles.see}
                           onClick={() => {

@@ -53,7 +53,7 @@ const RouterConfig = ({ history }) => {
           <Route path="/contact" component={Contact} />
           <Route path="/commonfare" component={Commonfare} />
           <Route path="/contactcontent/:id" component={Contactcontent} />
-          <Route path="/commonfarecontent:/id" component={Commonfarecontent} />
+          <Route path="/commonfarecontent/:id" component={Commonfarecontent} />
           <Route path="/repairfare" component={Repairfare} />
           <Route path="/entrust" component={Entrust} />
           <Route path="/entrustcontent/:id" component={EntrustContent} />

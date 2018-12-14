@@ -14,8 +14,6 @@ class Anoucecontent extends React.Component {
     this.getdata();
   }
   render() {
-    //  console.log(this.props.tongzhi.value)
-    // console.log(this.props.match.params.id);
     const value = this.props.tongzhi.value ? this.props.tongzhi.value.data : "";
     return (
       <Fragment>
