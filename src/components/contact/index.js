@@ -9,7 +9,7 @@ const Option = Select.Option;
 
 const data = [{}, {}];
 
-class Commonfare extends React.Component {
+class Contact extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
@@ -20,7 +20,7 @@ class Commonfare extends React.Component {
 
   getData = () => {
     this.props.dispatch({
-      type: "ggfy/getCommonfare",
+      type: "htlx/getContact",
       payload: ""
     });
   };
@@ -42,10 +42,9 @@ class Commonfare extends React.Component {
   };
 
   render() {
-    const value = this.props.ggfy.list ? this.props.ggfy.list.data : "";
-    console.log(value);
-    //  console.log(this.props.ggfy.list);
-    // const value = "";
+    const value1 = this.props.htlx.list ? this.props.htlx.list.data : "";
+    console.log(value1);
+    const value = "";
     return (
       <Fragment>
         <div className={styles.wrapper}>
@@ -70,36 +69,37 @@ class Commonfare extends React.Component {
           />
         </div>
         <div className={styles.content}>
-          <p>公共水电费用分摊情况公示</p>
+          <p>合同履行情况公示</p>
           <ul>
-            {value &&
-              value.data.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <div className={styles.top}>
-                      <p className={styles.title}>{item.sgsbt}</p>
-                      <p className={styles.date}>{item.dgsrq}</p>
-                    </div>
-                    <div className={styles.bottom}>
-                      <p className={styles.comp}>发布单位: {item.sqymc}</p>
-                      <p
-                        className={styles.see}
-                        onClick={() => {
-                          this.context.router.history.push(
-                            `/commonfarecontent/${item.id}`
-                          );
-                        }}
-                      >
-                        查看
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
+            {value1
+              ? value1.data.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <div className={styles.top}>
+                        <p className={styles.title}>{item.tgsbt}</p>
+                        <p className={styles.date}>{item.dgsrq}</p>
+                      </div>
+                      <div className={styles.bottom}>
+                        <p className={styles.comp}>发布单位: {item.sqymc}</p>
+                        <p
+                          className={styles.see}
+                          onClick={() => {
+                            this.context.router.history.push(
+                              `/contactcontent/${item.id}`
+                            );
+                          }}
+                        >
+                          查看
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })
+              : ""}
           </ul>
         </div>
       </Fragment>
     );
   }
 }
-export default connect(({ ggfy }) => ({ ggfy }))(Commonfare);
+export default connect(({ htlx }) => ({ htlx }))(Contact);

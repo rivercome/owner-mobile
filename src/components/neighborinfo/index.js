@@ -6,25 +6,6 @@ class NeigoborInfo extends React.Component {
   state = {
     mydata: ""
   };
-  // getData() {
-  //   fetch("http://154.8.214.49:8080/sjd/yzxgxx/xqxx", {
-  //     method: "GET",
-  //     headers: {
-  //       token: localStorage.token,
-  //       token_type: "yz"
-  //     }
-  //   }).then(res =>
-  //     res.json().then(data => {
-  //       // console.log(data);
-  //       this.setState({
-  //         mydata: data
-  //       });
-  //     })
-  //   );
-  // }
-  // componentWillMount() {
-  //   this.getData();
-  // }
   getData = () => {
     const { dispatch } = this.props;
     dispatch({
@@ -36,7 +17,6 @@ class NeigoborInfo extends React.Component {
     this.getData();
   }
   render() {
-    // console.log(this.props.xqxx.list);
     let data = this.props.xqxx.list ? this.props.xqxx.list.data : "";
     return (
       <Fragment>

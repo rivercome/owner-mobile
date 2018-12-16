@@ -1,21 +1,17 @@
-import { getCall } from "../services/api";
+import { getCompanyInfo } from "../services/api";
 
 export default {
-  namespace: "usualcall",
-
+  namespace: "qyxx",
   state: {},
-
   effects: {
-    *getCall({ payload }, { call, put }) {
-      const response = yield call(getCall, payload);
-      console.log(response);
+    *getCompanyInfo({ payload }, { call, put }) {
+      const response = yield call(getCompanyInfo, payload);
       yield put({
         type: "saveList",
         payload: response
       });
     }
   },
-
   reducers: {
     saveList(state, action) {
       return { ...state, list: action.payload };

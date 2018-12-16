@@ -1,49 +1,19 @@
 import React, { Fragment } from "react";
 import styles from "./index.less";
 import { connect } from "dva";
-const dataSource = [
-  {
-    name: "企业名称: ",
-    content: "秦皇岛详盛物业服务有限公司"
-  },
-  {
-    name: "社会信用代码: ",
-    content: "**"
-  },
-  {
-    name: "成立日期: ",
-    content: "***"
-  },
-  {
-    name: "法定代表人: ",
-    content: "***"
-  },
-  {
-    name: "注册资金(万元): ",
-    content: "***"
-  },
-  {
-    name: "办公地址: ",
-    content: "***"
-  },
-  {
-    name: "单位联系人: ",
-    content: "***"
-  },
-  {
-    name: "单位联系人电话(固话): ",
-    content: "***"
-  },
-  {
-    name: "单位联系人电话(手机): ",
-    content: "***"
-  }
-];
-// getdata = () =>{
 
-// }
-export default class CompanyInfo extends React.Component {
+class CompanyInfo extends React.Component {
+  getData = () => {
+    this.props.dispatch({
+      type: "qyxx/getCompanyInfo",
+      payload: ""
+    });
+  };
+  componentWillMount() {
+    this.getData();
+  }
   render() {
+    const value = this.props.qyxx.list ? this.props.qyxx.list.data : "";
     return (
       <Fragment>
         <div className={styles.header}>
@@ -51,14 +21,19 @@ export default class CompanyInfo extends React.Component {
         </div>
         <div className={styles.content}>
           <ul>
-            {dataSource.map((item, index) => {
-              return (
-                <li key={index}>{`${item.name}` + "  " + `${item.content}`}</li>
-              );
-            })}
+            <li key="1">企业名称: {value && value.sqymc}</li>
+            <li key="2">社会信用代码: {value && value.sshxydm}</li>
+            <li key="3">成立日期: {value && value.dclrq}</li>
+            <li key="4">法定代表人: {value && value.sfddbr}</li>
+            <li key="5">注册资金(万元): {value && value.nzczj}</li>
+            <li key="6">办公地址: {value && value.sbgdz}</li>
+            <li key="7">单位联系人: {value && value.slxr}</li>
+            <li key="8">单位联系人电话(固话): {value && value.slxdh_gh}</li>
+            <li key="9">单位联系人电话(手机): {value && value.slxdh_sj}</li>
           </ul>
         </div>
       </Fragment>
     );
   }
 }
+export default connect(({ qyxx }) => ({ qyxx }))(CompanyInfo);

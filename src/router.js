@@ -33,13 +33,15 @@ import zxpj from "./routes/oldBuilding/zxpj";
 import Message from "./routes/yeweihui/Message";
 import Record from "./routes/yeweihui/Record";
 import Details from "./routes/yeweihui/Details";
-import Contact from "./components/contactperform";
 import Commonfare from "./components/commonfare";
 import Repairfare from "./components/repairfare";
 import Entrust from "./components/entrust";
-
 import Messagetwo from "./components/message/message";
 import MessageContent from "./components/message/messageContent";
+import Contactcontent from "./components/contactperform";
+import Contact from "./components/contact";
+import Commonfarecontent from "./components/commonfarecontent";
+import EntrustContent from "./components/entrustcontent";
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
@@ -50,8 +52,11 @@ const RouterConfig = ({ history }) => {
           <Route path="/submissionList" component={submission} />
           <Route path="/contact" component={Contact} />
           <Route path="/commonfare" component={Commonfare} />
+          <Route path="/contactcontent/:id" component={Contactcontent} />
+          <Route path="/commonfarecontent/:id" component={Commonfarecontent} />
           <Route path="/repairfare" component={Repairfare} />
           <Route path="/entrust" component={Entrust} />
+          <Route path="/entrustcontent/:id" component={EntrustContent} />
           <Route path="/vote/:id" component={Vote} />
           <Route path="/qualityEvaluation/:id" component={qualityEvaluation} />
           <Route path="/d" component={abc} />
@@ -83,7 +88,6 @@ const RouterConfig = ({ history }) => {
           <Route path="/ahc" component={Details} />
           <Route path="/message" component={Messagetwo} />
           <Route path="/messageCon" component={MessageContent} />
-          <Route />
         </Switch>
       </Layout>
     </Router>

@@ -1,30 +1,107 @@
 import React, { Fragment } from "react";
-import styles from "./index.less";
+import styles from "../common.less";
+import { Select } from "antd";
+import { Card, SearchBar, Button, WhiteSpace, WingBlank } from "antd-mobile";
+import { List } from "antd";
+import { connect } from "dva";
+import PropTypes from "prop-types";
+const Option = Select.Option;
 
-export default class Entrust extends React.Component {
+const data = [{}, {}];
+
+class Entrust extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
+  state = {
+    value: "",
+    mydata: ""
+  };
+
+  getData = () => {
+    this.props.dispatch({
+      type: "wtjy/getEntrust",
+      payload: ""
+    });
+  };
+  componentWillMount() {
+    this.getData();
+  }
+
+  componentDidMount() {
+    this.autoFocusInst.focus();
+  }
+  onChange = value => {
+    this.setState({ value });
+  };
+  clear = () => {
+    this.setState({ value: "" });
+  };
+  handleClick = () => {
+    this.manualFocusInst.focus();
+  };
+
   render() {
+    const value = this.props.wtjy.list ? this.props.wtjy.list.data : "";
+    console.log(value);
+    // console.log(this.props.wtjy.list);
+    // const value = "";
     return (
       <Fragment>
-        <p className={styles.header}>委托经营收支情况公示</p>
-        <div className={styles.content}>
-          <ul>
-            <li>公示标题: </li>
-            <li>公示日期: </li>
-            <li>周期(起): </li>
-            <li>周期(止): </li>
-            <li>备注: </li>
-          </ul>
-          <p className={styles.contentheader}>公示内容: </p>
-          <div className={styles.content1} />
+        <div className={styles.wrapper}>
+          <Select
+            showSearch
+            style={{ width: 100 }}
+            defaultValue="1"
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              option.props.children
+                .toLowerCase()
+                .indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            <Option value="1">半年内</Option>
+            <Option value="2">一年内</Option>
+            <Option value="3">全部</Option>
+          </Select>
+          <SearchBar
+            placeholder="请输入查找内容"
+            ref={ref => (this.autoFocusInst = ref)}
+          />
         </div>
-        <div className={styles.footer}>
+        <div className={styles.content}>
+          <p>委托经营收支情况公示</p>
           <ul>
-            <li>附件一</li>
-            <li>附件二</li>
-            <li>附件三</li>
+            {value &&
+              value.data.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <div className={styles.top}>
+                      <p className={styles.title}>{item.sgsbt}</p>
+                      <p className={styles.date}>{item.dgsrq}</p>
+                    </div>
+                    <div className={styles.bottom}>
+                      <p className={styles.comp}>发布单位: {item.sqymc}</p>
+                      <p
+                        className={styles.see}
+                        onClick={() => {
+                          this.context.router.history.push(
+                            `/entrustcontent/${item.id}`
+                          );
+                        }}
+                      >
+                        查看
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </Fragment>
     );
   }
 }
+
+// export default connect(mapStateToProps)(Entrust);
+export default connect(({ wtjy }) => ({ wtjy }))(Entrust);

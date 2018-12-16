@@ -2,12 +2,12 @@ import React, { Fragment } from "react";
 import styles from "./index.less";
 import { connect } from "dva";
 
-class Contactcontent extends React.Component {
+class Commonfarecontent extends React.Component {
   getdata = () => {
     const { dispatch } = this.props;
     const id = this.props.match.params.id;
     dispatch({
-      type: "htlx/getContactContent",
+      type: "ggfy/getCommonfareContent",
       payload: id
     });
   };
@@ -15,17 +15,17 @@ class Contactcontent extends React.Component {
     this.getdata();
   }
   render() {
-    const value = this.props.htlx.value ? this.props.htlx.value.data : "";
+    const value = this.props.ggfy.value ? this.props.ggfy.value.data : "";
     return (
       <Fragment>
-        <p className={styles.header}>合同履行情况</p>
+        <p className={styles.header}>公共水电费用均摊情况</p>
         <div className={styles.content}>
           <ul>
-            <li>公示标题: {value && value.tgsbt}</li>
-            <li>合同名称: {value && value.tgsbt}</li>
+            <li>公示标题: {value && value.sgsbt}</li>
             <li>公示日期: {value && value.dgsrq}</li>
             <li>周期(起): {value && value.dzq_q}</li>
             <li>周期(止): {value && value.dzq_z}</li>
+            <li>备注: {value && value.sbz}</li>
           </ul>
           <p className={styles.contentheader}>公示内容: </p>
           <div
@@ -44,4 +44,4 @@ class Contactcontent extends React.Component {
     );
   }
 }
-export default connect(({ htlx }) => ({ htlx }))(Contactcontent);
+export default connect(({ ggfy }) => ({ ggfy }))(Commonfarecontent);

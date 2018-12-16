@@ -2,12 +2,12 @@ import React, { Fragment } from "react";
 import styles from "./index.less";
 import { connect } from "dva";
 
-class Contactcontent extends React.Component {
+class EntrustContent extends React.Component {
   getdata = () => {
     const { dispatch } = this.props;
     const id = this.props.match.params.id;
     dispatch({
-      type: "htlx/getContactContent",
+      type: "wtjy/getEntrustContent",
       payload: id
     });
   };
@@ -15,17 +15,18 @@ class Contactcontent extends React.Component {
     this.getdata();
   }
   render() {
-    const value = this.props.htlx.value ? this.props.htlx.value.data : "";
+    // console.log(this.props.wtjy.value);
+    const value = this.props.wtjy.value ? this.props.wtjy.value.data : "";
     return (
       <Fragment>
-        <p className={styles.header}>合同履行情况</p>
+        <p className={styles.header}>委托经营收支情况公示</p>
         <div className={styles.content}>
           <ul>
-            <li>公示标题: {value && value.tgsbt}</li>
-            <li>合同名称: {value && value.tgsbt}</li>
-            <li>公示日期: {value && value.dgsrq}</li>
+            <li>公示标题: {value && value.sgsbt}</li>
+            <li>公示日期: {value && value.sgsrq}</li>
             <li>周期(起): {value && value.dzq_q}</li>
             <li>周期(止): {value && value.dzq_z}</li>
+            <li>备注: {value && value.sbz}</li>
           </ul>
           <p className={styles.contentheader}>公示内容: </p>
           <div
@@ -44,4 +45,4 @@ class Contactcontent extends React.Component {
     );
   }
 }
-export default connect(({ htlx }) => ({ htlx }))(Contactcontent);
+export default connect(({ wtjy }) => ({ wtjy }))(EntrustContent);

@@ -18,7 +18,7 @@
 + hw  --  信息列表组件
 
 ### 开发流程
-+ 每次开发前合入origin master代码【如果从自己仓库拉取，手动添加https://github.com/rivercome并拉取】
++ 每次开发前合入origin master代码【如果从自己仓库拉取，手动添加https://github.com/rivercome并拉取
 + 每晚离开前在日报上简略写下 个人负责的进度，并提交git【如果没有问题，提交pull request】
 #### 韩薇的计划
 - 首先在我自己的组件里面实现数据的请求
@@ -28,14 +28,4 @@
 - lpf 
 待办事项等组件全部完成
 - wd
-任务
-``` 
-- I-首页 //完成静态页面 /main 为路由
-- J-常用电话 //完成静态页面 /call  完成数据请求.
-- J-通知公告 //完成静态页面 /anounce  完成数据请求
-- J-物业企业信息 //静态页面完成  /companyinfo   ?
-- J-通知公告内容页 //静态页面完成  /anoucecontent/:id  完成了数据请求
-- J-小区信息 //静态页面完成  /neighborinfo  完成了
-- J-政策规范 // /rules  完成了
-- J-政策规范内容页 /rulescontent  需要一个id值
-```
+主页面的一系列数据填充全部完成以及界面
